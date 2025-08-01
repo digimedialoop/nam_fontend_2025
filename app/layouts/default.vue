@@ -47,16 +47,26 @@
 <script setup>
 const scrollY = useState('scrollY')    
 const router = useRouter()
+const isMobileNavOpen = ref(false)
 
 function goHome() {
   router.push('/')
 }
+
+function toggleMobileNav() {
+  isMobileNavOpen.value = !isMobileNavOpen.value
+}
 </script>
 
+
 <style lang="sass">
-$breakpoint-sm: 576px
-$breakpoint-md: 768px
-$breakpoint-lg: 992px
+$breakpointSM: 576px
+$breakpointMD: 768px
+$breakpointLG: 992px
+
+$red: #c09c9c
+$purple: #9389a3
+$gold: #eddcb3
 
 @font-face
     font-family: "Laila"
@@ -104,6 +114,7 @@ body
     padding: 0
     font-size: 16px
     font-family: 'Mainfont', sans-serif
+    hyphens: auto
 
     a
         text-decoration: none
@@ -121,15 +132,18 @@ body
         height: 140px
         z-index: 100
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0))
-
+        
+        @media (max-width: $breakpointMD)
+            height: 80px
         &.small
-            nav
-                width: 80%
-                ul
-                    margin-top: 1rem
-                    li
-                        a
-                            font-size: 1.2rem
+            @media (min-width: $breakpointMD)
+                nav
+                    width: 80%
+                    ul
+                        margin-top: 1rem
+                        li
+                            a
+                                font-size: 1.2rem
             .headLogo
                 height: 80%
                 margin-top: .5rem
@@ -184,23 +198,40 @@ body
                             &:hover
                                 background-color: rgba(white, .6)
                                 transform: scale(1.1)
-                
+
+                @media (max-width: $breakpointMD)
+                    background-image: none
+                    background: $gold
+                    width: 4.5rem
+                    height: 4.5rem
+                    border-radius: 50%
+                    position: absolute
+                    top: 1.6rem
+                    right: 2rem
+                    ul
+                        display: none
         .headLogo
             height: 100%
             margin: 1rem 3rem
             transition: .6s
+            @media (max-width: $breakpointMD)
+                margin: 1rem 1rem
             
 
     main
         margin-top: 28vh
+        min-height: 55vh
         z-index: 0
         line-height: 150%
+        @media (max-width: $breakpointMD)
+            margin-top: calc(80px + 3rem)
         h1
             font-family: 'Laila'
             font-size: 2.6rem
+            line-height: 110%
         h2
             font-size: 1.8rem
-        
+            line-height: 110%
         p, ul
             font-size: 1.2rem
         li
@@ -211,9 +242,10 @@ body
     footer
         width: 100%
         min-height: 400px
+        height: auto
         background-image: url(/assets/images/lavendel.png)
         background-repeat: no-repeat
-        background-size: 100% auto
+        background-size: cover
         background-position: center top
         padding: 2rem 0
         display: flex
@@ -256,7 +288,7 @@ body
             img
                 max-width: 120px
 
-        @media (max-width: $breakpoint-md)
+        @media (max-width: $breakpointMD)
             .container
                 flex-direction: column
                 margin: 0 10%

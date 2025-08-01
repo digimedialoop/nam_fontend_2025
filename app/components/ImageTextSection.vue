@@ -1,5 +1,5 @@
 <template>
-  <section :class="[...sectionClasses, color]">
+  <section :class="[...sectionClasses, color, imagePositionMobile === 'bottom' ? 'image-bottom' : 'image-top']">
     <div class="image">
       <svg
         class="bg-shape"
@@ -10,7 +10,6 @@
           d="M169.847,626.994C309.047,564.864,463.327,567.254,519.007,598.318C699.200,698.851,746.367,1009.329,643.127,1173.017C584.924,1265.299,550.300,1244.110,492.327,1257.847C401.890,1279.278,276.227,1289.452,81.687,1207.666C-53.788,1150.711,8.606,1060.705,-29.674,868.343C-65.416,688.735,-10.616,707.540,169.847,626.994Z"
         />
       </svg>
-
       <img :src="imageSrc" :alt="imageAlt" />
     </div>
     <div class="text">
@@ -37,11 +36,10 @@ const sectionClasses = computed(() => {
 })
 </script>
 
-
 <style lang="sass">
-$breakpoint-sm: 576px
-$breakpoint-md: 768px
-$breakpoint-lg: 992px
+$breakpointSM: 576px
+$breakpointMD: 768px
+$breakpointLG: 992px
 
 $green: #b5d0cb
 $red: #c09c9c
@@ -54,6 +52,9 @@ $red: #c09c9c
   margin: 6vh 0
   overflow-x: hidden
 
+  @media (max-width: $breakpointMD)
+    flex-direction: column
+
   &.green
     h2
       color: darken($green, 30%)
@@ -62,6 +63,7 @@ $red: #c09c9c
     .image
       svg
         fill: $green
+
   &.red
     h2
       color: darken($red, 20%)
@@ -70,6 +72,7 @@ $red: #c09c9c
     .image
       svg
         fill: $red
+
   &.image-right
     flex-direction: row-reverse
     .image
@@ -89,12 +92,24 @@ $red: #c09c9c
     .text
       margin-right: 15vw
 
+  // Mobile Positionen
+  &.image-bottom
+    @media (max-width: $breakpointMD)
+      flex-direction: column-reverse
+
+  &.image-top
+    @media (max-width: $breakpointMD)
+      flex-direction: column
+
   .image,
   .text
     width: 50%
     display: flex
     flex-direction: column
     justify-content: center
+
+    @media (max-width: $breakpointMD)
+      width: 100%
 
   .image 
     position: relative
@@ -117,6 +132,11 @@ $red: #c09c9c
 
   .text
     line-height: 150%
+    padding: 0
+    @media (max-width: $breakpointMD)
+      padding: 0 5%
+      width: 90%
+      margin: 0 !important
     h2
       font-size: 1.2rem
       font-style: italic
@@ -124,6 +144,7 @@ $red: #c09c9c
     h3
       font-size: 2.8rem 
       margin: 1rem 0 1.6rem 0
+      line-height: 120%
     p
       font-size: 1.3rem
       margin: .5rem 0
@@ -143,16 +164,4 @@ $red: #c09c9c
 
       &:hover
         transform: scale(1.1)
-
-  // Mobile Layout
-  @media (max-width: $breakpoint-md)
-    flex-direction: column
-
-    &.mobile-bottom
-      flex-direction: column-reverse
-
-    .image,
-    .text
-      width: 100%
-      
 </style>
