@@ -7,7 +7,21 @@ export default defineNuxtConfig({
     exclude: ['/impressum', '/datenschutz'],
   },
   nitro: {
-    preset: 'vercel'
+    preset: 'vercel',
+    prerender: {
+      routes: [
+        '/heilpflanze/kamille',
+        '/heilpflanze/lavendel',
+        '/heilpflanze/pfefferminze',
+        '/heilpflanze/salbei',
+        '/heilpflanze/ringelblume',
+        '/heilpflanze/baldrian',
+        '/heilpflanze/johanniskraut',
+        '/heilpflanze/schafgarbe',
+        '/heilpflanze/thymian',
+        '/heilpflanze/ingwer'
+      ]
+    }
   },
   target: 'static',
   app: {
