@@ -49,6 +49,19 @@ function goHome() {
 function toggleMobileNav() {
   isMobileNavOpen.value = !isMobileNavOpen.value
 }
+
+// Nur in Produktion tracken
+if (!import.meta.dev) {
+  useHead({
+    script: [
+      {
+        src: 'https://umami.digimedialoop.de/script.js',
+        defer: true,
+        'data-website-id': 'f45cae5c-9265-4386-95ea-7dc4c4cff73f'
+      }
+    ]
+  })
+}
 </script>
 
 

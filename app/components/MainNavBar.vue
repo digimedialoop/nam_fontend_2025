@@ -87,7 +87,7 @@ onBeforeUnmount(() => {
           transform: scale(1)
           display: inline-block
           &:hover
-            background-color: rgba(white, 0.6)
+            background-color: rgba(white, 0.8)
             transform: scale(1.1)
 
   // Mobile Styles
@@ -100,7 +100,7 @@ onBeforeUnmount(() => {
       .burger
         width: 4.5rem
         height: 4.5rem
-        background-color: $gold
+        background-color: darken($gold, 10%)
         border: none
         border-radius: 50%
         position: absolute
@@ -125,7 +125,7 @@ onBeforeUnmount(() => {
           transition: all 0.4s ease
 
         &.open
-          background-color: rgba($gold, 0.9)
+          background-color: rgba(darken($gold, 5%), 0.9)
 
           span
             &:first-child
@@ -140,7 +140,7 @@ onBeforeUnmount(() => {
         right: 0
         width: 90vw
         height: calc(100vh - 2rem)
-        background-color: rgba($gold, 0.96)
+        background-color: rgba(darken($gold, 10%), 0.96)
         display: flex
         flex-direction: column
         justify-content: flex-start
@@ -164,15 +164,15 @@ onBeforeUnmount(() => {
           margin: 1rem 0
           a
             color: white
-            font-size: 2rem
+            font-size: 1.8rem
             font-weight: bold
             text-transform: uppercase
             font-family: 'Laila', sans-serif
             text-decoration: none
-            transition: color 0.3s ease
+            transition: 0.6s
 
             &:hover
-              color: darken(white, 20%)
+              color: darken($gold, 20%)
 
   // Desktop: Burger verstecken
   @media (min-width: $breakpointXL + 1)
