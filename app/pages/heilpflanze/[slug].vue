@@ -43,6 +43,52 @@ const route = useRoute()
 const slug = route.params.slug as string
 
 const plant = plants.find((p) => p.slug === slug)
+
+watchEffect(() => {
+  if (!plant) return
+
+  const imageUrl = `https://www.naturamentis.de/assets/images/medplants/${plant.image}`
+  const pageUrl = `https://www.naturamentis.de/pflanzen/${plant.slug}`
+
+  useSeoMeta({
+    title: `${plant.title} (${plant.botanicalTitle})`,
+    description: plant.teaser,
+    ogTitle: `${plant.title} (${plant.botanicalTitle})`,
+    ogDescription: plant.teaser,
+    ogImage: imageUrl,
+    twitterTitle: `${plant.title} (${plant.botanicalTitle})`,
+    twitterDescription: plant.teaser,
+    twitterImage: imageUrl,
+  })
+
+  useHead({
+    script: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: `${plant.title} (${plant.botanicalTitle})`,
+          description: plant.teaser,
+          image: imageUrl,
+          url: pageUrl,
+          author: {
+            '@type': 'Organization',
+            name: 'naturamentis'
+          },
+          mainEntityOfPage: pageUrl,
+          about: {
+            '@type': 'Thing',
+            name: plant.title,
+            alternateName: plant.botanicalTitle,
+            description: plant.teaser
+          }
+        })
+      }
+    ]
+  })
+})
+
 </script>
 
 <style lang="sass">

@@ -40,6 +40,41 @@ function goToLexikon() {
 function goToBuchtipps() {
   router.push('/buchtipps')
 }
+
+useSeoMeta({
+  title: 'Naturamentis – Ganzheitliches Wissen für Körper und Geist',
+  description: 'Entdecke bei Naturamentis ein umfassendes Heilpflanzenlexikon, inspirierende Leseschätze und praktische Anleitungen für ein gesundes und bewusstes Leben im Einklang mit der Natur.',
+  ogTitle: 'Naturamentis – Ganzheitliches Wissen für Körper und Geist',
+  ogDescription: 'Heilpflanzen, Leseschätze und natürliche Lebensweise für mehr Gesundheit und Wohlbefinden.',
+  ogImage: 'https://www.naturamentis.de/assets/images/NAM_Logo.svg',
+  twitterTitle: 'Naturamentis – Ganzheitliches Wissen für Körper und Geist',
+  twitterDescription: 'Heilpflanzen, Leseschätze und natürliche Lebensweise für mehr Gesundheit und Wohlbefinden.',
+  twitterImage: 'https://www.naturamentis.de/assets/images/NAM_Logo.svg',
+  twitterCard: 'summary_large_image',
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'url': 'https://www.naturamentis.de',
+        'name': 'Naturamentis',
+        'description': 'Ganzheitliches Wissen für Körper, Geist und Seele. Heilpflanzenlexikon und inspirierende Leseschätze für ein bewusstes Leben.',
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Naturamentis',
+          'logo': {
+            '@type': 'ImageObject',
+            'url': 'https://www.naturamentis.de/assets/images/NAM_Logo.svg'
+          }
+        }
+      })
+    }
+  ]
+})
 </script>
 
 <style lang="sass">

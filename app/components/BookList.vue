@@ -26,6 +26,40 @@ const advertisingId = 'naturamentali-21'
 const amazonLink = (asin) => {
   return `https://www.amazon.de/dp/${asin}/?tag=${advertisingId}`
 }
+
+// Meta-Daten für SEO
+useSeoMeta({
+  title: 'Leseschätze – Buchtipps zu Natur, Gesundheit und innerem Wachstum',
+  description: 'Entdecke handverlesene Buchtipps zu Achtsamkeit, Heilpflanzen, Naturverbindung und persönlicher Entwicklung. Für alle, die tiefer lesen wollen.',
+})
+
+// Strukturierte Daten im Schema.org-Format für die Buchliste
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'ItemList',
+        'name': 'Leseschätze – Buchtipps',
+        'itemListElement': books.map((book, index) => ({
+          '@type': 'ListItem',
+          position: index + 1,
+          item: {
+            '@type': 'Book',
+            name: book.title,
+            author: {
+              '@type': 'Person',
+              name: book.author,
+            },
+            image: `https://www.deine-domain.de/assets/images/bookcovers/${book.asin}.jpg`,
+            url: amazonLink(book.asin),
+          },
+        })),
+      }),
+    },
+  ],
+})
 </script>
 
 <style lang="sass">
