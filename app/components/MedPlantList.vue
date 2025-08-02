@@ -24,37 +24,7 @@
 <script setup>
 import { plants } from '@/utils/medPlants'
 
-// Meta-Daten für SEO
-useSeoMeta({
-  title: 'Heilpflanzen entdecken – Naturamentis Kräuterschätze',
-  description: 'Umfassende Übersicht ausgewählter Heilpflanzen mit Informationen zu Wirkung, Geschichte und Anwendung. Entdecke die Kraft der Natur für Körper und Geist.',
-})
 
-// Schema.org JSON-LD für die Liste der Heilpflanzen
-useHead({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'ItemList',
-        'name': 'Heilpflanzen Übersicht',
-        'itemListElement': plants.map((plant, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          item: {
-            '@type': 'Article', 
-            name: plant.title,
-            alternateName: plant.botanicalTitle,
-            image: `https://www.naturamentis.de/assets/images/medplants/${plant.image}`,
-            url: `https://www.naturamentis.de/heilpflanze/${plant.slug}`,
-            description: plant.teaser || plant.medApplication || '',
-          },
-        })),
-      }),
-    },
-  ],
-})
 </script>
 
 <style lang="sass">
@@ -75,7 +45,7 @@ useHead({
         flex-direction: column
         align-items: center
         text-align: center
-        background-image: linear-gradient(to bottom right, lighten($gold, 10%), darken($gold, 5%))
+        background-image: linear-gradient(to bottom right, lighten($gold, 40%), lighten($gold, 10%))
         border-radius: 1rem
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)
         transition: transform 0.2s ease

@@ -7,7 +7,7 @@
         <div class="info">
             <h1>{{ plant.title }}</h1> 
             <p class="subtitle">{{ plant.botanicalTitle }}</p>
-            <p>{{ plant.teaser }}</p>
+            <p class="teaser">{{ plant.teaser }}</p>
             <h2>Typ</h2> 
             
             <p>
@@ -37,59 +37,68 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import { useSeoMeta, useHead } from '#imports'
 import { plants } from '@/utils/medPlants'
 
 const route = useRoute()
 const slug = route.params.slug as string
 
-const plant = plants.find((p) => p.slug === slug)
+const plant = computed(() =>
+  plants.find((p) => p.slug === slug)
+)
 
-watchEffect(() => {
-  if (!plant) return
+const imageUrl = computed(() => `/images/plants/${slug}.jpg`)
+const pageUrl = computed(() => `https://www.naturamentis.de/heilpflanzen/${slug}`)
 
-  const imageUrl = `https://www.naturamentis.de/assets/images/medplants/${plant.image}`
-  const pageUrl = `https://www.naturamentis.de/pflanzen/${plant.slug}`
+useSeoMeta(() => {
+  if (!plant.value) return {}
+  return {
+    title: `${plant.value.title} (${plant.value.botanicalTitle})`,
+    description: plant.value.teaser,
+    ogTitle: `${plant.value.title} (${plant.value.botanicalTitle})`,
+    ogDescription: plant.value.teaser,
+    ogImage: imageUrl.value,
+    twitterTitle: `${plant.value.title} (${plant.value.botanicalTitle})`,
+    twitterDescription: plant.value.teaser,
+    twitterImage: imageUrl.value,
+  }
+})
 
-  useSeoMeta({
-    title: `${plant.title} (${plant.botanicalTitle})`,
-    description: plant.teaser,
-    ogTitle: `${plant.title} (${plant.botanicalTitle})`,
-    ogDescription: plant.teaser,
-    ogImage: imageUrl,
-    twitterTitle: `${plant.title} (${plant.botanicalTitle})`,
-    twitterDescription: plant.teaser,
-    twitterImage: imageUrl,
-  })
-
-  useHead({
+useHead(() => {
+  if (!plant.value) return {}
+  return {
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify({
+        innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Article',
-          headline: `${plant.title} (${plant.botanicalTitle})`,
-          description: plant.teaser,
-          image: imageUrl,
-          url: pageUrl,
+          headline: `${plant.value.title} (${plant.value.botanicalTitle})`,
+          description: plant.value.teaser,
+          image: imageUrl.value,
+          url: pageUrl.value,
           author: {
             '@type': 'Organization',
-            name: 'naturamentis'
+            name: 'naturamentis',
           },
-          mainEntityOfPage: pageUrl,
+          mainEntityOfPage: pageUrl.value,
           about: {
             '@type': 'Thing',
-            name: plant.title,
-            alternateName: plant.botanicalTitle,
-            description: plant.teaser
-          }
-        })
-      }
-    ]
-  })
+            name: plant.value.title,
+            alternateName: plant.value.botanicalTitle,
+            description: plant.value.teaser,
+          },
+        }),
+      },
+    ],
+    __dangerouslyDisableSanitizersByTagID: {
+      // optional, wenn du mehrere Tags erzeugst
+    },
+    __dangerouslyDisableSanitizers: ['script'],
+  }
 })
-
 </script>
+
 
 <style lang="sass">
 .plantDetails
@@ -151,6 +160,11 @@ watchEffect(() => {
                 display: inline-block
                 font-size: .9rem
 
+            .teaser
+                background-color: lighten($green, 20%)
+                padding: 1rem 1.5rem
+                border-radius: 1rem
+            
         @media (max-width: $breakpointMD)
             grid-template-columns: 1fr
             grid-template-rows: auto auto

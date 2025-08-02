@@ -57,24 +57,26 @@ useHead({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
-        'url': 'https://www.naturamentis.de',
-        'name': 'Naturamentis',
-        'description': 'Ganzheitliches Wissen für Körper, Geist und Seele. Heilpflanzenlexikon und inspirierende Leseschätze für ein bewusstes Leben.',
-        'publisher': {
+        url: 'https://www.naturamentis.de',
+        name: 'Naturamentis',
+        description: 'Ganzheitliches Wissen für Körper, Geist und Seele. Heilpflanzenlexikon und inspirierende Leseschätze für ein bewusstes Leben.',
+        publisher: {
           '@type': 'Organization',
-          'name': 'Naturamentis',
-          'logo': {
+          name: 'Naturamentis',
+          logo: {
             '@type': 'ImageObject',
-            'url': 'https://www.naturamentis.de/assets/images/NAM_Logo.svg'
+            url: 'https://www.naturamentis.de/assets/images/NAM_Logo.svg'
           }
         }
-      })
+      }),
     }
-  ]
+  ],
+  __dangerouslyDisableSanitizers: ['script'],
 })
+
 </script>
 
 <style lang="sass">

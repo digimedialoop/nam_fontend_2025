@@ -10,16 +10,7 @@
                 @click="goHome"
                 class="headLogo" />
             </div>
-            <div>
-                <nav >
-                    <ul>
-                        <li>
-                            <NuxtLink to="/lexikon">Heilpflanzen</NuxtLink>
-                            <NuxtLink to="/buchtipps">Leseschätze</NuxtLink>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+            <MainNavBar />
         </header>
         <main>
             <Transition name="slide-fade" mode="out-in">
@@ -45,6 +36,8 @@
 </template>
 
 <script setup>
+import MainNavBar from '~/components/MainNavBar.vue'
+
 const scrollY = useState('scrollY')    
 const router = useRouter()
 const isMobileNavOpen = ref(false)
@@ -136,55 +129,7 @@ body
             &:last-child
                 align-items: flex-end
 
-            nav
-                background-image: url('/assets/images/MenuBackground.svg')
-                background-repeat: no-repeat
-                background-position: top right
-                background-size: contain
-                width: 100%
-                height: 100%
-                text-align: center
-                margin: 0 
-                padding: 0
-                transition: .6s
-                ul
-                    display: flex
-                    justify-content: space-evenly
-                    align-items: center
-                    list-style: none
-                    padding: 0 0 0 15%
-                    transition: .6s
-                    max-width: 80%
-                    margin-top: 1rem
-                    li
-                        a
-                            text-decoration: none
-                            color: black
-                            font-weight: bold
-                            padding: 0.5rem 1.5rem
-                            margin: 0 1rem
-                            font-size: 1.4rem
-                            text-transform: uppercase
-                            font-family: 'Laila', sans-serif
-                            transition: .6s
-                            border-radius: 1rem
-                            transform: scale(1)
-                            display: inline-block
-                            &:hover
-                                background-color: rgba(white, .6)
-                                transform: scale(1.1)
-
-                @media (max-width: $breakpointMD)
-                    background-image: none
-                    background: $gold
-                    width: 4.5rem
-                    height: 4.5rem
-                    border-radius: 50%
-                    position: absolute
-                    top: 1.6rem
-                    right: 2rem
-                    ul
-                        display: none
+            
         .headLogo
             height: 100%
             margin: 1rem 3rem
