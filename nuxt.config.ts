@@ -5,13 +5,23 @@ export default defineNuxtConfig({
   modules: ['@nuxt/image'],
   app: {
     head: {
-      title: 'naturamentis', // default fallback title
+      title: 'naturamentis',
       htmlAttrs: {
         lang: 'de',
       },
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ]
+    }
+  },
+  css: ['@/assets/styles/main.sass'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        sass: {
+          additionalData: `@use "@/assets/styles/variables.sass" as *\n`
+        }
+      }
     }
   }
 })

@@ -21,7 +21,7 @@
 <script setup>
 import { books } from '@/utils/books'
 
-const advertisingId = 'naturamentis-21'
+const advertisingId = 'naturamentali-21'
 
 const amazonLink = (asin) => {
   return `https://www.amazon.de/dp/${asin}/?tag=${advertisingId}`

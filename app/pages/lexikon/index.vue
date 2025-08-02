@@ -1,6 +1,7 @@
 <template>
     <div class="container">
         <h1>Heilkräuter-Lexikon</h1>
+        <MedPlantList />
     </div>
 </template>
 

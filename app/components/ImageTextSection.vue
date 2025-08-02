@@ -37,12 +37,6 @@ const sectionClasses = computed(() => {
 </script>
 
 <style lang="sass">
-$breakpointSM: 576px
-$breakpointMD: 768px
-$breakpointLG: 992px
-
-$green: #b5d0cb
-$red: #c09c9c
 
 .image-text-section
   display: flex

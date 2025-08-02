@@ -14,7 +14,7 @@
                 <nav >
                     <ul>
                         <li>
-                            <NuxtLink to="/lexikon">Heilkräuter</NuxtLink>
+                            <NuxtLink to="/lexikon">Heilpflanzen</NuxtLink>
                             <NuxtLink to="/buchtipps">Leseschätze</NuxtLink>
                         </li>
                     </ul>
@@ -30,7 +30,7 @@
             <div class="container">
                 <div>
                     <img src="/assets/images/NAM_Logo.svg" alt="naturamentis Logo">
-                    <p>powerd by <a href="https://www.digimedialoop.de">digimedialoop.de</a></p></div>
+                    <p>Ein Projekt von <a href="https://www.digimedialoop.de">digimedialoop.de</a></p></div>
                 <div>
                     <nav class="footer-links">
                         <NuxtLink to="/impressum">Impressum</NuxtLink>
@@ -60,34 +60,9 @@ function toggleMobileNav() {
 
 
 <style lang="sass">
-$breakpointSM: 576px
-$breakpointMD: 768px
-$breakpointLG: 992px
 
-$red: #c09c9c
-$purple: #9389a3
-$gold: #eddcb3
 
-@font-face
-    font-family: "Laila"
-    src: url("/assets/fonts/Laila-Light.ttf") format("truetype")
-    font-weight: normal
-    font-style: normal
-    font-display: swap
 
-@font-face
-    font-family: "Mainfont"
-    src: url("/assets/fonts/Urbanist-Light.ttf") format("truetype")
-    font-weight: normal
-    font-style: normal
-    font-display: swap
-
-@font-face
-    font-family: "Mainfont-Bold"
-    src: url("/assets/fonts/Urbanist-Medium.ttf") format("truetype")
-    font-weight: normal
-    font-style: normal
-    font-display: swap
 
 .slide-fade-enter-active,
 .slide-fade-leave-active
