@@ -6,6 +6,11 @@ export interface Book {
 
 export const books: Book[] = [
     {
+        title: 'Wie wir unsere Gedanken beruhigen',
+        author: 'Pema Chödrön',
+        asin: '3442222540',
+    },
+    {
         title: 'Die Kräuterapotheke Gottes: Heilpflanzen sammeln und anwenden',
         author: 'Eva Aschenbrenner',
         asin: '3440152731',
@@ -20,6 +25,26 @@ export const books: Book[] = [
         title: 'Lehrbuch Phytotherapie',
         author: 'Volker Fintelmann',
         asin: '3132400157',
+    },
+    {
+        title: 'Räuchern für die Seele',
+        author: 'Annemarie Zobernig',
+        asin: '3863745353',
+    },
+    {
+        title: 'Resilienz ist erlernbar',
+        author: 'Birgit Eberle',
+        asin: '1080717544',
+    },
+    {
+        title: 'Breath - Atem: Neues Wissen über die vergessene Kunst des Atmens',
+        author: 'James Nestor',
+        asin: '3492058515',
+    },
+    {
+        title: 'Waldtherapie',
+        author: 'Angela Schuh',
+        asin: '3662590255',
     },
     /* 
   {

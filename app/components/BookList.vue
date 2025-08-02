@@ -11,8 +11,8 @@
         target="_blank"
         rel="noopener sponsored"
       >
-        <strong>{{ book.title }}</strong><br>
-        <span>{{ book.author }}</span>
+        <h2>{{ book.title }}</h2>
+        <h3>{{ book.author }}</h3>
       </a>
     </li>
   </ul>
@@ -32,7 +32,7 @@ const amazonLink = (asin) => {
 .book-list
   display: grid
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
-  gap: 1.5rem
+  gap: 2rem
   justify-content: center
   padding: 2rem
   list-style: none
@@ -42,7 +42,7 @@ const amazonLink = (asin) => {
     flex-direction: column
     align-items: center
     text-align: center
-    background: #f9f9f9
+    border: 2px solid lighten($gold, 10%)
     padding: 1rem
     border-radius: 1rem
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1)
@@ -54,21 +54,20 @@ const amazonLink = (asin) => {
 
     img
       max-width: 100%
-      height: auto
-      margin-bottom: 0.75rem
+      height: 250px
+      margin: 0
       border-radius: 0.5rem
 
     a
       color: #333
       text-decoration: none
 
-      strong
-        display: block
-        font-size: 1rem
-        margin-bottom: 0.25rem
-
-      span
-        font-size: 0.875rem
-        color: #666
+    h2
+      font-family: 'Laila' 
+      font-size: 1.4rem
+      margin: 2rem 0 1rem 0
+    
+    h3
+      font-size: 1.1rem
 
 </style>
