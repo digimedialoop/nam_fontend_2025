@@ -3,6 +3,9 @@
         <h1>Leseschätze für Herz, Geist und Alltag</h1>
         <h2>Empfohlene Bücher für Menschen, die tiefer fühlen, denken und wachsen wollen</h2>
         <BookList />
+        <section class="disclaimer">
+          <p><b>Hinweis</b> <span>*</span>Wir nehmen am Amazon-Partnerprogramm teil. Duch die Nutzung unserer Links kannst Du unsere Arbeit unterstützen. <br>(Es entstehen für Dich keine Mehrkosten)</p>
+        </section>
     </div>
 </template>
 
@@ -53,7 +56,10 @@ useHead({
 
 <style lang="sass">
 .bookTipps
-  h2
-    font-size: 1.4rem
-    line-height: 130%
+  .disclaimer
+    span
+      font-size: 1rem
+      margin: 0 .2rem 0 .2rem
+      color: darken($gold, 30%)
+      
 </style>

@@ -67,6 +67,15 @@ const sectionClasses = computed(() => {
       svg
         fill: $red
 
+  &.purple
+    h2
+      color: darken($purple, 20%)
+    button
+      background-color: lighten($purple, 25%)
+    .image
+      svg
+        fill: lighten($purple, 5%)
+
   &.image-right
     flex-direction: row-reverse
     .image

@@ -1,41 +1,55 @@
+// compontents/MedPlantList.vue
 <template>
   <ul class="med-plant-list">
-    <li v-for="plant in plants" :key="plant.botanicalTitle">
-        <NuxtLink
-            :to="`/heilpflanze/${plant.slug}`"
-            class="plant-link"
-        >
-            <div class="image-wrapper">
-                <img
-                :src="`/assets/images/medplants/${plant.image}`"
-                :alt="plant.title"
-                >
-            </div>
-            <div>
-                <h2>{{ plant.title }}</h2>
-                <h3>{{ plant.botanicalTitle }}</h3>
-                <p><span v-for="(t, i) in plant.type" :key="i" class="tag">{{ t }}</span></p>
-            </div>
+    <li v-for="plant in sortedPlants" :key="plant.botanicalTitle">
+      <NuxtLink
+        :to="`/heilpflanze/${plant.slug}`"
+        class="plant-link"
+      >
+        <div class="image-wrapper">
+          <img
+            :src="`/assets/images/medplants/${plant.image}`"
+            :alt="plant.title"
+          />
+        </div>
+        <div>
+          <h2>{{ plant.title }}</h2>
+          <h3>{{ plant.botanicalTitle }}</h3>
+          <p>
+            <span v-for="(t, i) in plant.type" :key="i" class="tag">{{ t }}</span>
+          </p>
+        </div>
       </NuxtLink>
     </li>
   </ul>
 </template>
 
-<script setup>
-import { plants } from '@/utils/medPlants'
+<script setup lang="ts">
+import { computed, defineProps } from 'vue'
 
+const props = defineProps({
+  plants: {
+    type: Array,
+    required: true,
+  },
+})
 
+// Alphabetisch sortieren
+const sortedPlants = computed(() =>
+  [...props.plants].sort((a, b) => a.title.localeCompare(b.title))
+)
 </script>
 
 <style lang="sass">
 .med-plant-list
     display: grid
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr))
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
     column-gap: 1.5rem
     row-gap: 3rem
     justify-content: center
     padding: 1rem
-    list-style: none
+    list-style: none    
+    margin: 0 auto  
 
     li
         display: contents  // kein eigenes Layout mehr – alles übernimmt .plant-link

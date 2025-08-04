@@ -15,10 +15,9 @@
 
       <!-- Navigation Links -->
       <ul :class="{ open: isOpen }">
-        <li>
-          <NuxtLink to="/lexikon">Heilpflanzen</NuxtLink>
-          <NuxtLink to="/buchtipps">Leseschätze</NuxtLink>
-        </li>
+        <li><NuxtLink to="/lexikon">Heilpflanzen</NuxtLink></li>
+        <li><NuxtLink to="/magazin">Wissensgarten</NuxtLink></li>
+        <li><NuxtLink to="/buchtipps">Leseschätze</NuxtLink></li>
       </ul>
     </nav>
   </div>
@@ -58,27 +57,27 @@ onBeforeUnmount(() => {
     background-size: contain
     width: 100%
     height: 100%
-    text-align: center
     margin: 0
     padding: 0
     transition: 0.6s
 
     ul
       display: flex
-      justify-content: space-evenly
+      justify-content: flex-end
       align-items: center
       list-style: none
-      padding: 0
+      padding: 0 
       transition: 0.6s
-      width: 100%
+      width: 95%
       margin-top: 1rem
+      margin-right: 5%
       li
         a
           text-decoration: none
           color: black
           font-weight: bold
-          padding: 0.5rem 1rem
-          margin: 0 1rem
+          padding: 0.5rem .6rem
+          margin: 0 .5rem
           font-size: 1.4rem
           text-transform: uppercase
           font-family: 'Laila', sans-serif
@@ -91,7 +90,7 @@ onBeforeUnmount(() => {
             transform: scale(1.1)
 
   // Mobile Styles
-  @media (max-width: $breakpointXL)
+  @media (max-width: $breakpointXXL)
     nav
       position: relative
       background-image: none
@@ -175,7 +174,7 @@ onBeforeUnmount(() => {
               color: darken($gold, 20%)
 
   // Desktop: Burger verstecken
-  @media (min-width: $breakpointXL + 1)
+  @media (min-width: $breakpointXXL + 1)
     .burger
       display: none
 </style>

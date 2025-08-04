@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <h1></h1>
+    <div class="home">
+        <div class="container">
+          <h1>Inspiration und Lebenskraft im Einklang der Natur</h1>
+        </div>
+        
         <ImageTextSection
             imageSrc="/assets/images/TinkturImage.png"
             imageAlt="Kräuter Tinktur"
@@ -16,9 +19,23 @@
         </ImageTextSection>
 
         <ImageTextSection
-            imageSrc="/assets/images/BuchImage.png"
+            imageSrc="/assets/images/MagazinImage.png"
             imageAlt="Kräuter Tinktur"
             imagePosition="right"
+            imagePositionMobile="bottom"
+            color="purple"
+            >
+            <h2>Wo uraltes Wissen wurzelt und neue Einsichten sprießen</h2>
+            <h3>Wissensgarten</h3>
+            <p>Tauche ein in fundierte Beiträge über Heilpflanzen, fermentierte Lebensmittel und die Weisheit des Körpers – vom Nervensystem bis zur Darmgesundheit. 
+                </p><p>Lerne, wie du mit einfachen Mitteln dein Wohlbefinden stärkst, sei es durch selbstgemachte Tinkturen, entspannende Atemübungen oder die Kraft fermentierter Lebensmittel.</p> 
+            <button @click="goToMagazin">Tauche ein ins Magazin</button>
+        </ImageTextSection>
+
+        <ImageTextSection
+            imageSrc="/assets/images/BuchImage.png"
+            imageAlt="Kräuter Tinktur"
+            imagePosition="left"
             imagePositionMobile="bottom"
             color="red"
             >
@@ -28,6 +45,8 @@
                 </p><p>Unsere Leseschätze eröffnen dir neue Perspektiven auf das Zusammenspiel von Körper, Seele und Umwelt. Ob spirituelle Impulse, wissenschaftliche Erkenntnisse oder praktische Anleitungen. Hier findest du Bücher, die dich inspirieren und begleiten.</p>
             <button @click="goToBuchtipps">Finde Dein Herzensbuch</button>
         </ImageTextSection>
+
+        
     </div>
 </template>
 
@@ -36,6 +55,9 @@ const router = useRouter()
 
 function goToLexikon() {
   router.push('/lexikon')
+}
+function goToMagazin() {
+  router.push('/magazin')
 }
 function goToBuchtipps() {
   router.push('/buchtipps')
@@ -80,5 +102,10 @@ useHead({
 </script>
 
 <style lang="sass">
-
+.home
+  h1
+    font-size: 1.6rem
+    margin-top: -2.5rem
+    @media (max-width: $breakpointMD)
+      margin-top: 0
 </style>

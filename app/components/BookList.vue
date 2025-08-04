@@ -11,7 +11,7 @@
         target="_blank"
         rel="noopener sponsored"
       >
-        <h2>{{ book.title }}</h2>
+        <h2>{{ book.title }}<span>*</span></h2>
         <h3>{{ book.author }}</h3>
       </a>
     </li>
@@ -68,6 +68,10 @@ const amazonLink = (asin) => {
       font-family: 'Laila' 
       font-size: 1.4rem
       margin: 2rem 0 1rem 0
+      span
+        font-size: 1rem
+        margin: 0 0 0 .2rem
+        color: darken($gold, 30%)
     
     h3
       font-size: 1.1rem

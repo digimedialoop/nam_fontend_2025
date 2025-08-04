@@ -27,6 +27,25 @@
         <h2>Anwendungsbereiche</h2>
         <p v-if="plant.medApplication">{{ plant.medApplication }}</p>
     </section>
+    <section class="container similarPlants">
+      <h2>Heilpflanzen mit ähnlicher Wirkung</h2>
+      <ul v-if="similarPlants.length">
+        
+        <li v-for="sp in similarPlants" :key="sp.slug">
+          <NuxtLink :to="`/heilpflanze/${sp.slug}`">
+          <img
+            :src="`/assets/images/medplants/${sp.image}`"
+            :alt="sp.title"
+          />
+          <p>{{ sp.title }}</p>
+          </NuxtLink>
+        </li>
+      </ul>
+      <p v-else>Keine ähnlichen Pflanzen gefunden.</p>
+    </section>
+    <section class="container">
+      <Disclaimer />
+    </section>
     
   </div>
   <div v-else>
@@ -49,6 +68,18 @@ const plant = computed(() =>
 
 const imageUrl = computed(() => `/images/plants/${slug}.jpg`)
 const pageUrl = computed(() => `https://www.naturamentis.de/heilpflanzen/${slug}`)
+
+// Liste der ähnlichen Pflanzen nach Wirkung
+const similarPlants = computed(() => {
+  if (!plant.value) return []
+
+  return plants.filter(p => {
+    if (p.slug === plant.value.slug) return false // gleiche Pflanze ausschließen
+
+    // mindestens eine gemeinsame Wirkung?
+    return p.effectArea.some(area => plant.value.effectArea.includes(area))
+  })
+})
 
 useSeoMeta(() => {
   if (!plant.value) return {}
@@ -171,4 +202,44 @@ useHead(() => {
     h2
         font-family: 'Laila', sans-serif
         font-size: 1.6rem
+
+    .similarPlants
+      ul
+        list-style: none
+        padding: 0
+        margin: 1rem 0
+        display: flex
+        flex-wrap: wrap
+        gap: 1rem
+        justify-content: flex-start
+
+        li
+          background-color: white
+          border-radius: 0.8rem
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1)
+          width: 120px
+          padding: 0
+          cursor: pointer
+          text-align: center
+          transition: transform 0.2s ease
+
+          &:hover
+            transform: translateY(-4px)
+
+          img
+            width: 100%           
+            height: 100px         
+            object-fit: cover     
+            display: block
+            border-radius: 0.6rem 0.6rem 0 0
+            margin: 0
+
+          p
+            display: block
+            font-family: 'Laila', sans-serif
+            font-size: .9rem
+            margin: .5rem auto
+            color: darken($gold, 40%)
+
+
 </style>

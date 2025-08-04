@@ -163,8 +163,10 @@ body
             font-size: 2.6rem
             line-height: 110%
         h2
-            font-size: 1.8rem
-            line-height: 110%
+            font-size: 1.4rem
+            line-height: 130%
+        b, strong, .bold
+            font-family: 'Mainfont-Bold'
         p, ul
             font-size: 1.2rem
         li
