@@ -48,8 +48,9 @@ useHead({
       <img src="/assets/images/magazin/fermentieren.jpg" alt="fermentiertes Gemüse im Glas">
     </div>
     <div class="container">
+      
       <h1>Fermentieren – Wie du mit der Kraft der Natur deine Gesundheit und Seele stärkst</h1>
-
+      <p class="info"><b>Autor</b> Sabrina Hennrich | <b>Veröffentlicht</b> 4. August 2025</p>
       <p class="teaser">Stell dir vor, du könntest ein kleines Wunder ganz einfach zuhause erschaffen: Lebensmittel, die nicht nur länger haltbar sind, sondern dich auch tief von innen nähren. Genau das ist Fermentieren – eine uralte Kunst, die heute mehr denn je Menschen verbindet, die bewusst leben und essen wollen.</p>
 
       <h2>Fermentieren – eine Geschichte so alt wie die Menschheit</h2>
@@ -136,6 +137,7 @@ useHead({
   h1
     color: darken($gold, 30%)
     line-height: 120%
+    margin-bottom: 0
   h2
     color: darken($green, 30%)
     margin: 2.5rem 0 .5rem
@@ -150,6 +152,10 @@ useHead({
     &.teaser
       font-family: 'Mainfont-Bold'
       font-size: 1.4rem
+    &.info
+      font-size: .9rem
+      color: $purple
+      margin: .5rem 0 3rem 0
     a
       color: darken($gold, 30%)
       text-decoration: underline
@@ -181,5 +187,6 @@ useHead({
       border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%
       z-index: 2
       position: relative
+      border: 8px solid $gold
       margin-top: 20%
 </style>

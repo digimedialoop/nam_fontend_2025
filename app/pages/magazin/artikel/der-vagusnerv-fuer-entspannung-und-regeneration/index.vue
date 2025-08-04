@@ -181,6 +181,7 @@ useHead({
       width: 90%
       border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%
       z-index: 2
+      border: 8px solid $gold
       position: relative
       margin-top: 20%
 

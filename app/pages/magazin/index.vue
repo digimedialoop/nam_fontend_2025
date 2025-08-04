@@ -30,6 +30,7 @@
     .articleBox
         width: 200px
         background-color: white
+        border: 1px solid lighten($gold, 10%)
         border-radius: 0.8rem
         box-shadow: 0 2px 8px rgba(0,0,0,0.1)
         width: 220px

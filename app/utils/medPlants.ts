@@ -121,5 +121,83 @@ export const plants = [
     teaser: "Ingwer ist eine tropische Wurzel mit knollenartiger Form und scharf-aromatischem Geschmack. Seine zitronige Schärfe ist charakteristisch.",
     history: "Ingwer wird seit Jahrtausenden vor allem in Asien als Heilmittel bei Verdauungsproblemen, Erkältungen und Entzündungen eingesetzt. Über den Seehandel gelangte er nach Europa, wo er schnell geschätzt wurde. Die vielseitige Wirkung der Ingwerwurzel macht ihn weltweit zu einer der wichtigsten und beliebtesten Gewürz- und Heilpflanzen.",
     medApplication: "Ingwer unterstützt die Verdauung, lindert Übelkeit, wirkt entzündungshemmend und antioxidativ. Er hilft bei Reiseübelkeit, Erkältungen oder Kreislaufproblemen. Frisch, als Tee, Pulver oder Extrakt kommt Ingwer innerlich und äußerlich zum Einsatz."
-  }
+  },
+  {
+  slug: 'frauenmantel',
+  title: 'Frauenmantel',
+  botanicalTitle: 'Alchemilla vulgaris',
+  image: 'frauenmantel.jpg',
+  type: ['Blatt', 'Blüte'],
+  effectArea: ['hormonregulierend', 'krampflösend', 'entzündungshemmend'],
+  teaser: "Der Frauenmantel mit seinen weichen, rundlichen Blättern gilt als eine der wichtigsten Heilpflanzen für Frauen. Er wächst auf Wiesen, Waldrändern und Gebirgsregionen.",
+  history: "Schon im Mittelalter wurde Frauenmantel als 'Frauenkraut' verehrt. Heilkundige wie Hildegard von Bingen empfahlen ihn zur Stärkung der Gebärmutter und zur Linderung von Menstruationsbeschwerden. In der Volksmedizin hatte er einen festen Platz bei allen Themen rund um den weiblichen Zyklus.",
+  medApplication: "Frauenmantel wird vor allem bei Menstruationsbeschwerden, Wechseljahrsbeschwerden und zur Zyklusregulation eingesetzt. Seine krampflösende Wirkung hilft bei Unterleibsschmerzen. Als Tee oder Tinktur kann er unterstützend bei hormonellen Ungleichgewichten wirken."
+},
+{
+  slug: 'spitzwegerich',
+  title: 'Spitzwegerich',
+  botanicalTitle: 'Plantago lanceolata',
+  image: 'spitzwegerich.jpg',
+  type: ['Blatt'],
+  effectArea: ['reizlindernd', 'hustenstillend', 'entzündungshemmend', 'wundheilend'],
+  teaser: "Spitzwegerich ist eine robuste Pflanze mit langen, schmalen Blättern. Er wächst oft unbeachtet an Wegrändern – dabei steckt in ihm eine wahre Heilkraft.",
+  history: "Bereits in der Antike war Spitzwegerich bekannt. Die Germanen und später die Klostermedizin nutzten ihn zur Behandlung von Husten, Insektenstichen und Hautverletzungen. Besonders beliebt war er wegen seiner reizlindernden Schleimstoffe.",
+  medApplication: "Spitzwegerich lindert Hustenreiz, unterstützt die Schleimlösung und wirkt bei Reizungen der Atemwege. Als Tee, Sirup oder Tinktur wird er vor allem bei Bronchitis und Reizhusten verwendet. Äußerlich hilft er bei kleinen Wunden und Insektenstichen."
+},
+{
+  slug: 'loewenzahn',
+  title: 'Löwenzahn',
+  botanicalTitle: 'Taraxacum officinale',
+  image: 'loewenzahn.jpg',
+  type: ['Blatt', 'Wurzel'],
+  effectArea: ['entgiftend', 'stoffwechselanregend', 'verdauungsfördernd'],
+  teaser: "Löwenzahn mit seinen leuchtend gelben Blüten ist ein Symbol des Frühlings. Doch er ist nicht nur schön – seine Heilwirkung ist vielseitig und tiefgehend.",
+  history: "Löwenzahn wurde bereits im Altertum als verdauungsförderndes Mittel verwendet. Im Mittelalter galt er als 'Lebenselixier' für Leber und Galle. Seine Nutzung reicht von der Volksmedizin bis zur modernen Phytotherapie.",
+  medApplication: "Löwenzahn regt Leber, Galle und Nieren an und unterstützt den Körper bei der Entgiftung. Er wird bei Völlegefühl, Blähungen und Appetitlosigkeit empfohlen. Besonders wirksam sind Tees und Tinkturen aus Wurzel und Blatt."
+},
+{
+  slug: 'giersch',
+  title: 'Giersch',
+  botanicalTitle: 'Aegopodium podagraria',
+  image: 'giersch.jpg',
+  type: ['Blatt'],
+  effectArea: ['entzündungshemmend', 'stoffwechselanregend', 'harnsäuresenkend'],
+  teaser: "Giersch ist ein Wildkraut mit dreigeteilten Blättern – oft als Unkraut verkannt, aber voller Heilkraft, besonders für Gelenke und Stoffwechsel.",
+  history: "Früher wurde Giersch als 'Podagrakraut' bei Gicht (Podagra) geschätzt. In Klostergärten und der traditionellen Volksmedizin wurde er zur Entsäuerung und gegen Gelenkschmerzen verwendet.",
+  medApplication: "Giersch hilft bei Gicht, rheumatischen Beschwerden und zur Förderung des Harnsäureabbaus. Er wird frisch als Tee oder in Smoothies genutzt und kann auch äußerlich als Umschlag bei Schwellungen helfen."
+},
+{
+  slug: 'vogelmiere',
+  title: 'Vogelmiere',
+  botanicalTitle: 'Stellaria media',
+  image: 'vogelmiere.jpg',
+  type: ['Blatt'],
+  effectArea: ['hautberuhigend', 'entzündungshemmend', 'stoffwechselanregend'],
+  teaser: "Vogelmiere ist eine zarte, bodennahe Pflanze mit kleinen weißen Blüten. Sie wächst das ganze Jahr über – oft übersehen, aber voller Kraft.",
+  history: "Seit Jahrhunderten wird Vogelmiere in der Volksmedizin verwendet – vor allem zur Hautpflege und bei Ekzemen. Ihre milden Eigenschaften machten sie besonders bei empfindlicher Haut beliebt.",
+  medApplication: "Vogelmiere wirkt kühlend und juckreizstillend bei Hautproblemen wie Ekzemen oder Insektenstichen. Sie wird frisch als Auflage, in Salben oder als Tee bei Stoffwechselstörungen verwendet."
+},
+{
+  slug: 'maedesuess',
+  title: 'Mädesüß',
+  botanicalTitle: 'Filipendula ulmaria',
+  image: 'maedesuess.webp',
+  type: ['Blüte', 'Blatt'],
+  effectArea: ['schmerzlindernd', 'entzündungshemmend', 'fiebersenkend'],
+  teaser: "Mädesüß mit seinen cremig-weißen Blüten verströmt einen süßlichen Duft. Es wächst an Bachufern und in feuchten Wiesen – ein echter Naturheiler.",
+  history: "Mädesüß enthält natürliche Salicylate – Vorläufer des Aspirins. Schon in der Antike und später in der Klostermedizin wurde es zur Fiebersenkung und Schmerzlinderung genutzt.",
+  medApplication: "Mädesüß hilft bei Erkältungen, Fieber und leichten Schmerzen. Es wirkt ähnlich wie Aspirin, aber sanfter. Verwendet werden vor allem Blüten und Blätter als Tee oder Tinktur."
+},
+{
+  slug: 'cistus',
+  title: 'Cistus',
+  botanicalTitle: 'Cistus incanus',
+  image: 'cistus.jpg',
+  type: ['Blatt'],
+  effectArea: ['antiviral', 'antibakteriell', 'immunstärkend', 'antioxidativ'],
+  teaser: "Cistus, auch Zistrose genannt, ist ein stark duftender Strauch aus dem Mittelmeerraum. In der Naturheilkunde gilt er als Schutzschild gegen Viren und Bakterien.",
+  history: "Bereits im antiken Griechenland wurde Cistus als Räucherwerk und Heilpflanze genutzt. In jüngerer Zeit wurde seine antivirale Wirkung wiederentdeckt – besonders bei Erkältungskrankheiten.",
+  medApplication: "Cistus wird zur Stärkung des Immunsystems, bei Erkältungen und zur Vorbeugung von Infekten verwendet. Besonders beliebt ist Cistus-Tee. Die Pflanze gilt als stark antioxidativ und entzündungshemmend."
+}
+
 ]
