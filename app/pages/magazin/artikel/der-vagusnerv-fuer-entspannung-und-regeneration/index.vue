@@ -5,7 +5,7 @@ useSeoMeta({
   description: 'Entdecke die Macht deines Vagusnervs: Wie dieser wichtige Nerv Entspannung steuert und mit einfachen Übungen für mehr Resilienz sorgt. Mit praktischen Tipps zur Stimulation.',
   ogTitle: 'Vagusnerv stärken: Natürliche Wege zu mehr Entspannung und Lebensqualität',
   ogDescription: 'Wissenschaftlich fundierte Methoden zur Vagusnerv-Stimulation. Von Atemtechniken bis Heilkräutern – so aktivierst du deinen Parasympathikus.',
-  ogImage: 'https://www.naturamentis.de/assets/images/magazin/vagusnerventspannung.jpg',
+  ogImage: 'https://www.naturamentalis.de/assets/images/magazin/vagusnerventspannung.jpg',
   ogType: 'article',
   twitterCard: 'summary_large_image',
   keywords: 'Vagusnerv aktivieren, Parasympathikus stärken, Nervensystem regulieren, Stressabbau natürlich, Atemübungen Vagusnerv, Darm-Hirn-Achse'
@@ -20,7 +20,7 @@ useHead({
       "@type": "Article",
       "headline": "Vagusnerv aktivieren – Der Schlüssel zu innerer Balance und Stressresistenz",
       "description": "Umfassender Guide zur Stärkung des Vagusnervs mit natürlichen Methoden und wissenschaftlichen Erkenntnissen",
-      "image": "https://www.naturamentis.de/assets/images/magazin/vagusnerventspannung.jpg",
+      "image": "https://www.naturamentalis.de/assets/images/magazin/vagusnerventspannung.jpg",
       "author": {
         "@type": "Person",
         "name": "Sabrina Hennrich"
@@ -28,14 +28,14 @@ useHead({
       "datePublished": "2025-08-04",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.naturamentis.de/magazin/vagusnerv-entspannung"
+        "@id": "https://www.naturamentalis.de/magazin/vagusnerv-entspannung"
       },
       "publisher": {
         "@type": "Organization",
-        "name": "Naturamentis",
+        "name": "naturamentalis",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.naturamentis.de/logo.png"
+          "url": "https://www.naturamentalis.de/logo.png"
         }
       }
     })
@@ -44,7 +44,7 @@ useHead({
     lang: 'de'
   },
   link: [
-    { rel: 'canonical', href: 'https://www.naturamentis.de/magazin/vagusnerv-entspannung' }
+    { rel: 'canonical', href: 'https://www.naturamentalis.de/magazin/vagusnerv-entspannung' }
   ]
 })
 </script>

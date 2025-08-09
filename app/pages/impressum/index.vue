@@ -4,13 +4,13 @@
 
 <h2>Angaben gemäß § 5 DDG</h2>
 <p>Sabrina Hennrich<br>
-naturamentis<br>
+naturamentalis<br>
 Rausch 10<br>
 82211 Herrsching am Ammersee<br>
 Tel: 08152 / 927 927 - 0</p>
 
 <h2>Kontakt</h2>
-<p>E-Mail: info@naturamentis.de</p>
+<p>E-Mail: info@naturamentalis.de</p>
 
 <h2>Umsatzsteuer-ID</h2>
 <p>Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br>

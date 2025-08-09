@@ -7,7 +7,7 @@
 
 <h2>Verantwortliche Stelle</h2>
 <p>Sabrina Hennrich<br>
-naturamentis<br>
+naturamentalis<br>
 Rausch 10<br>
 82211 Herrsching am Ammersee</p>
 

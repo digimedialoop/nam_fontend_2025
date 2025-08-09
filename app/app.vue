@@ -25,4 +25,16 @@ onUnmounted(() => {
   window.removeEventListener('scroll', update)
   window.removeEventListener('resize', update)
 })
+
+
+// Canonical
+const route = useRoute()
+useHead(() => ({
+  link: [
+    {
+      rel: 'canonical',
+      href: `https://www.naturamentalis.de${route.fullPath}`
+    }
+  ]
+}))
 </script>

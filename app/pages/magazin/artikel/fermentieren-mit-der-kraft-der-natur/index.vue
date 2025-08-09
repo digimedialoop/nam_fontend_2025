@@ -5,7 +5,7 @@ useSeoMeta({
   description: 'Entdecke die uralte Kunst des Fermentierens: Einfache Anleitung für gesunde Probiotika zuhause. Mit Tipps zu Sauerkraut, Kimchi und Kräuterfermenten für Darmgesundheit.',
   ogTitle: 'Fermentieren lernen: Natürliche Probiotika für Darm & Immunsystem',
   ogDescription: 'Step-by-Step Guide zum Selbstfermentieren von Gemüse. Wie du mit Salz, Zeit und Naturheilkräften lebendige Lebensmittel herstellst.',
-  ogImage: 'https://www.naturamentis.de/assets/images/magazin/fermentieren.jpg',
+  ogImage: 'https://www.naturamentalis.de/assets/images/magazin/fermentieren.jpg',
   ogType: 'article',
   twitterCard: 'summary_large_image',
   keywords: 'Fermentieren Anleitung, Probiotika selbst machen, Sauerkraut fermentieren, Darmgesundheit, Ginger bug, kimichi, kombucha, kefir'
@@ -20,7 +20,7 @@ useHead({
       "@type": "Article",
       "headline": "Fermentieren – Wie du mit der Kraft der Natur deine Gesundheit und Seele stärkst",
       "description": "Kompletter Guide zum Fermentieren von Gemüse und Getränken für bessere Darmgesundheit",
-      "image": "https://www.naturamentis.de/assets/images/magazin/fermentieren.jpg",
+      "image": "https://www.naturamentalis.de/assets/images/magazin/fermentieren.jpg",
       "author": {
         "@type": "Person",
         "name": "Sabrina Hennrich"
@@ -28,7 +28,7 @@ useHead({
       "datePublished": "2025-08-04",
       "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "https://www.naturamentis.de/magazin/fermentieren"
+        "@id": "https://www.naturamentalis.de/magazin/fermentieren"
       }
     })
   }],
@@ -37,7 +37,7 @@ useHead({
     lang: 'de'
   },
   link: [
-    { rel: 'canonical', href: 'https://www.naturamentis.de/magazin/fermentieren-mit-der-kraft-der-natur' }
+    { rel: 'canonical', href: 'https://www.naturamentalis.de/magazin/fermentieren-mit-der-kraft-der-natur' }
   ]
 })
 </script>

@@ -67,7 +67,7 @@ const plant = computed(() =>
 )
 
 const imageUrl = computed(() => `/images/plants/${slug}.jpg`)
-const pageUrl = computed(() => `https://www.naturamentis.de/heilpflanzen/${slug}`)
+const pageUrl = computed(() => `https://www.naturamentalis.de/heilpflanzen/${slug}`)
 
 // Liste der ähnlichen Pflanzen nach Wirkung
 const similarPlants = computed(() => {
@@ -110,7 +110,7 @@ useHead(() => {
           url: pageUrl.value,
           author: {
             '@type': 'Organization',
-            name: 'naturamentis',
+            name: 'naturamentalis',
           },
           mainEntityOfPage: pageUrl.value,
           about: {

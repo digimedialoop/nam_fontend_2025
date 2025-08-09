@@ -9,7 +9,27 @@ export const plants = [
     effectArea: ['entzündungshemmend', 'krampflösend', 'beruhigend', 'antiseptisch'],
     teaser: "Kamille ist eine zarte, weiß-gelbe Blütenpflanze mit markantem Duft. Sie wächst wild auf Wiesen und ist eine der bekanntesten Heilpflanzen Europas.",
     history: "Kamille wurde bereits im alten Ägypten, im antiken Griechenland und Rom für Heilzwecke genutzt. Sie galt dort als Allheilmittel gegen zahlreiche Leiden und wurde höchst geschätzt. Im Laufe der Jahrhunderte entwickelte sie sich zu einer festen Größe in der europäischen Volksmedizin, insbesondere als sanfte Pflanze für die Behandlung von Entzündungen und Hautleiden. Ihre vielfältigen Anwendungsmöglichkeiten sorgen bis heute für ihren hohen Stellenwert.",
-    medApplication: "Kamille eignet sich ideal zur Linderung von Magen-Darm-Beschwerden, wirkt krampflösend und beruhigend. Sie ist entzündungshemmend bei Hautreizungen und Erkrankungen der Schleimhäute. Anwendungen erfolgen als Tee, Inhalation, Bäder oder als Umschlag bei kleinen Verletzungen. Ihre antiseptischen Eigenschaften machen sie zudem zu einem bewährten Hausmittel bei leichten Wunden."
+    medApplication: "Kamille eignet sich ideal zur Linderung von Magen-Darm-Beschwerden, wirkt krampflösend und beruhigend. Sie ist entzündungshemmend bei Hautreizungen und Erkrankungen der Schleimhäute. Anwendungen erfolgen als Tee, Inhalation, Bäder oder als Umschlag bei kleinen Verletzungen. Ihre antiseptischen Eigenschaften machen sie zudem zu einem bewährten Hausmittel bei leichten Wunden.",
+
+    tasteSmell: "Mild, leicht süßlich mit einem frischen, blumigen und etwas krautigen Aroma. Der typische Kamillenduft ist warm und beruhigend.",
+
+    preparationMethods: ['Tee', 'Inhalation', 'Umschlag', 'Bad', 'Tinktur'],
+
+    combinations: ['Pfefferminze', 'Melisse', 'Lavendel'],
+
+    ingredients: [
+      'Ätherische Öle (z.B. Chamazulen)',
+      'Flavonoide',
+      'Gerbstoffe',
+      'Bitterstoffe',
+      'Mineralstoffe (Kalzium, Magnesium)'
+    ],
+
+    harvestMonths: [5, 6, 7], // Mai, Juni, Juli
+
+    locations: ['Wiesen', 'Wegränder', 'sonnige Feldränder', 'magere Böden'],
+
+    notesRisks: "Kann bei empfindlichen Personen allergische Reaktionen auslösen, insbesondere bei Allergien gegen Korbblütler. Nicht überdosieren, Schwangere sollten Rücksprache halten."
   },
   {
     slug: 'lavendel',

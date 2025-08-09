@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ['@nuxt/image', '@nuxtjs/sitemap'],
   sitemap: {
-    hostname: 'https://www.naturamentis.de',
+    hostname: 'https://www.naturamentalis.de',
     exclude: ['/impressum', '/datenschutz'],
   },
   nitro: {
@@ -26,22 +26,22 @@ export default defineNuxtConfig({
   target: 'static',
   app: {
     head: {
-      title: 'naturamentis',
-      titleTemplate: '%s - naturamentis',
+      title: 'naturamentalis',
+      titleTemplate: '%s - naturamentalis',
       htmlAttrs: {
         lang: 'de',
       },
       meta: [
-        { name: 'description', content: 'Naturamentis – Ganzheitliche Informationen für mehr Balance und Wohlbefinden von Körper, Geist und Seele. Entdecke Wissen zu Heilpflanzen, Lebensweise und natürlichen Heilmethoden' },
+        { name: 'description', content: 'naturamentalis – Ganzheitliche Informationen für mehr Balance und Wohlbefinden von Körper, Geist und Seele. Entdecke Wissen zu Heilpflanzen, Lebensweise und natürlichen Heilmethoden' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:title', content: 'naturamentis' },
-        { property: 'og:description', content: 'Naturamentis – Ganzheitliche Informationen für mehr Balance und Wohlbefinden von Körper, Geist und Seele. Entdecke Wissen zu Heilpflanzen, Lebensweise und natürlichen Heilmethoden' },
-        { property: 'og:url', content: 'https://www.naturamentis.de' },
-        { property: 'og:image', content: 'https://www.naturamentis.de/assets/images/NAM_Logo.svg' },
+        { property: 'og:title', content: 'naturamentalis' },
+        { property: 'og:description', content: 'naturamentalis – Ganzheitliche Informationen für mehr Balance und Wohlbefinden von Körper, Geist und Seele. Entdecke Wissen zu Heilpflanzen, Lebensweise und natürlichen Heilmethoden' },
+        { property: 'og:url', content: 'https://www.naturamentalis.de' },
+        { property: 'og:image', content: 'https://www.naturamentalis.de/assets/images/NAM_Logo.svg' },
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'naturamentis' },
-        { name: 'twitter:description', content: 'Naturamentis – Ganzheitliche Informationen für mehr Balance und Wohlbefinden von Körper, Geist und Seele. Entdecke Wissen zu Heilpflanzen, Lebensweise und natürlichen Heilmethoden' },
-        { name: 'twitter:image', content: 'https://www.naturamentis.de/assets/images/NAM_Logo.svg' }
+        { name: 'twitter:title', content: 'naturamentalis' },
+        { name: 'twitter:description', content: 'naturamentalis – Ganzheitliche Informationen für mehr Balance und Wohlbefinden von Körper, Geist und Seele. Entdecke Wissen zu Heilpflanzen, Lebensweise und natürlichen Heilmethoden' },
+        { name: 'twitter:image', content: 'https://www.naturamentalis.de/assets/images/NAM_Logo.svg' }
       ],
       link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }

@@ -6,7 +6,7 @@
             <div>                
                 <img 
                 src="/assets/images/NAM_Logo.svg" 
-                alt="naturamentis Logo" 
+                alt="naturamentalis Logo" 
                 @click="goHome"
                 class="headLogo" />
             </div>
@@ -20,7 +20,7 @@
         <footer>
             <div class="container">
                 <div>
-                    <img src="/assets/images/NAM_Logo.svg" alt="naturamentis Logo">
+                    <img src="/assets/images/NAM_Logo.svg" alt="naturamentalis Logo">
                     <p>Ein Projekt von <a href="https://www.digimedialoop.de">digimedialoop.de</a></p></div>
                 <div>
                     <nav class="footer-links">
