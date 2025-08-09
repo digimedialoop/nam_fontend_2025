@@ -19,7 +19,11 @@ export default defineNuxtConfig({
         '/heilpflanze/johanniskraut',
         '/heilpflanze/schafgarbe',
         '/heilpflanze/thymian',
-        '/heilpflanze/ingwer'
+        '/heilpflanze/ingwer',
+        '/magazin/artikel/fermentieren-mit-der-kraft-der-natur',
+        '/magazin/artikel/der-vagusnerv-fuer-entspannung-und-regeneration',
+        '/magazin/artikel/wie-musik-unsere-seele-sanft-heilt',
+        '/magazin/artikel/wildkraeuter-raeuchern-natur-rituale-und-gesundheit'
       ]
     }
   },
