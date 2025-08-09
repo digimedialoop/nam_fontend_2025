@@ -8,17 +8,21 @@
             <h1>{{ plant.title }}</h1> 
             <p class="subtitle">{{ plant.botanicalTitle }}</p>
             <p class="teaser">{{ plant.teaser }}</p>
-            <h2>Typ</h2> 
-            
+            <h2>Typ</h2>             
             <p>
               <span v-for="(t, i) in plant.type" :key="i" class="tag">{{ t }}</span>
-            </p>
-            <h2>Wirkbereiche</h2> 
+            </p><h2>Anwendungsformen</h2> 
             <p>
-              <span v-for="(ea, i) in plant.effectArea" :key="i" class="tag">{{ ea }}</span>
+              <span v-for="(pm, i) in plant.preparationMethods" :key="i" class="tag">{{ pm }}</span>
             </p>
+            <h2>Standorte</h2> 
+            <p>
+              <span v-for="(loc, i) in plant.locations" :key="i" class="tag">{{ loc }}</span>
+            </p>
+            
         </div>
     </section>
+    
     <section class="container history">
         <h2>Geschichte / Herkunft</h2>
         <p v-if="plant.history">{{ plant.history }}</p>
@@ -26,6 +30,25 @@
     <section class="container medapp">
         <h2>Anwendungsbereiche</h2>
         <p v-if="plant.medApplication">{{ plant.medApplication }}</p>
+        <p>
+        <span v-for="(ea, i) in plant.effectArea" :key="i" class="tag">{{ ea }}</span>
+      </p>
+    </section>
+    <section class="container medapp">
+        <h2>Duft / Geschmack</h2>
+        <p v-if="plant.tasteSmell">{{ plant.tasteSmell }}</p>
+    </section>
+    
+    <section class="container">
+      
+      <h2>Inhaltsstoffe</h2> 
+      <p>
+        <span v-for="(ig, i) in plant.ingredients" :key="i" class="tag">{{ ig }}</span>
+      </p>
+    </section>
+    <section class="container medapp">
+        <h2>Hinweise / Risiken</h2>
+        <p v-if="plant.notesRisks">{{ plant.notesRisks }}</p>
     </section>
     <section class="container similarPlants">
       <h2>Heilpflanzen mit ähnlicher Wirkung</h2>
@@ -183,13 +206,7 @@ useHead(() => {
                 font-style: italic
                 margin: .5rem 0 2rem 0
 
-            .tag
-                background-color: $lightgrey
-                padding: .25rem .6rem
-                border-radius: .6rem
-                margin: .4rem .25rem 
-                display: inline-block
-                font-size: .9rem
+        
 
             .teaser
                 background-color: lighten($green, 20%)
@@ -199,6 +216,13 @@ useHead(() => {
         @media (max-width: $breakpointMD)
             grid-template-columns: 1fr
             grid-template-rows: auto auto
+    .tag
+      background-color: $lightgrey
+      padding: .25rem .6rem
+      border-radius: .6rem
+      margin: .4rem .25rem 
+      display: inline-block
+      font-size: .9rem
     h2
         font-family: 'Laila', sans-serif
         font-size: 1.6rem
