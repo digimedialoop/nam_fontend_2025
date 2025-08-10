@@ -1,9 +1,5 @@
 <script setup lang="ts">
-
 import { useRoute, useRouter } from 'vue-router'
-import { useHtmlConverter } from '~/composables/useHtmlConverter'
-import Disclaimer from '~/components/Disclaimer.vue'
-
 const route = useRoute()
 const router = useRouter()
 const link = route.params.link as string
