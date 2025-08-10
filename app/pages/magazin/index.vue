@@ -1,15 +1,15 @@
 <template>
     <div class="container">
         <h1>Wissensgarten</h1>
-        <h2>In unserem Magazin geeihen Gedanken und Erfahrungen, die Körper, Geilst und Seele nähren.</h2>
+        <h2>In unserem Magazin gedeihen Gedanken und Erfahrungen, die Körper, Geist und Seele nähren.</h2>
         <div class="articleList">
             <div
-                v-for="article in articles"
+                v-for="article in articles.data"
                 :key="article.link"
                 class="articleBox"
             >
-                <NuxtLink :to="`/magazin/artikel/${article.link}`">
-                <img :src="article.image" :alt="article.title" />
+                <NuxtLink :to="`/magazin/artikel/${article.slug}`">
+                <img :src="url + article.image[0].url" :alt="article.image[0].alternativeText" />
                 <h3>{{ article.title }}</h3>
                 </NuxtLink>
             </div>
@@ -18,7 +18,17 @@
 </template>
 
 <script setup>
-import { articles } from '~/utils/articles'    
+//import { articles } from '~/utils/articles'  
+
+const token = useRuntimeConfig().public.strapiToken
+const url = useRuntimeConfig().public.strapiUrl
+
+const { data: articles, error, pending } = await useFetch(`${url}/api/articles?populate=*`, {
+  headers: {
+    Authorization: `Bearer ${token}`
+  },
+  async: true // Optional: Asynchroner Abruf
+})
 </script>
 
 <style lang="sass">

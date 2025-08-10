@@ -1,84 +1,144 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import { articles, type Article } from '~/utils/articles'
-import MarkdownIt from 'markdown-it'
-import { ref, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useHtmlConverter } from '~/composables/useHtmlConverter'
 import Disclaimer from '~/components/Disclaimer.vue'
 
 const route = useRoute()
-const md = new MarkdownIt()
+const router = useRouter()
+const slug = route.params.link as string
 
-const link = route.params.link as string
+const token = useRuntimeConfig().public.strapiToken
+const url = useRuntimeConfig().public.strapiUrl
 
-const article = ref<Article | undefined>(articles.find(a => a.link === link))
+const { convertToHTML } = useHtmlConverter()
 
-if (!article.value) {
-  // Nuxt 3: Fehlerseite anzeigen
-  throw createError({ statusCode: 404, statusMessage: 'Artikel nicht gefunden' })
+const article = ref(null)
+const error = ref(null)
+
+async function fetchArticle() {
+  try {
+    const res = await $fetch(`${url}/api/articles`, {
+      params: {
+        'filters[slug][$eq]': slug,
+        populate: '*'
+      },
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    if (res.data && res.data.length > 0) {
+      article.value = res.data[0]
+    } else {
+      throw createError({ statusCode: 404, statusMessage: 'Artikel nicht gefunden' })
+    }
+  } catch (e) {
+    error.value = e
+  }
 }
 
-// SEO Meta
-useHead({
-  title: article.value.title,
-  meta: [
-    { name: 'description', content: article.value.teaser },
-    { property: 'og:title', content: article.value.title },
-    { property: 'og:description', content: article.value.teaser },
-    { property: 'og:image', content: article.value.image },
-    { property: 'og:type', content: 'article' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'keywords', content: 'Fermentieren Anleitung, Probiotika, Darmgesundheit' }
-  ],
-  link: [
-    { rel: 'canonical', href: `https://www.naturamentalis.de/magazin/artikel/${article.value.link}` }
-  ],
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: article.value.title,
-        description: article.value.teaser,
-        image: article.value.image,
-        author: { '@type': 'Person', name: article.value.author },
-        datePublished: article.value.publishDate,
-        mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': `https://www.naturamentalis.de/magazin/artikel/${article.value.link}`
-        }
-      })
-    }
-  ],
-  htmlAttrs: { lang: 'de' }
+await fetchArticle()
+
+// Auf Änderungen des Slugs reagieren
+watch(() => route.params.slug, async (newSlug, oldSlug) => {
+  if (newSlug && newSlug !== oldSlug) {
+    slug = newSlug as string
+    article.value = null
+    error.value = null
+    await fetchArticle()
+  }
 })
 
-const htmlContent = computed(() => md.render(article.value?.content || ''))
+watch(error, (e) => {
+  if (e) router.replace('/404')
+})
+
+const htmlContent = computed(() => {
+  if (!article.value?.content) return ''
+  return convertToHTML(article.value.content) // content ist direkt Array
+})
+
+watch(article, (art) => {
+  if (!art) return
+  useHead({
+    title: art.title ?? 'Artikel',
+    meta: [
+      { name: 'description', content: art.teaser ?? '' },
+      { property: 'og:title', content: art.title ?? '' },
+      { property: 'og:description', content: art.teaser ?? '' },
+      { property: 'og:image', content: getImageUrl(art.image) },
+      { property: 'og:type', content: 'article' },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'keywords', content: 'Fermentieren Anleitung, Probiotika, Darmgesundheit' }
+    ],
+    link: [
+      { rel: 'canonical', href: `https://www.naturamentalis.de/magazin/artikel/${art.slug ?? ''}` }
+    ],
+    script: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: art.title ?? '',
+          description: art.teaser ?? '',
+          image: getImageUrl(art.image),
+          author: { '@type': 'Person', name: art.author ?? 'Autor' },
+          datePublished: art.publishdate ?? '',
+          mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://www.naturamentalis.de/magazin/artikel/${art.slug ?? ''}`
+          }
+        })
+      }
+    ],
+    htmlAttrs: { lang: 'de' }
+  })
+})
+
+function getImageUrl(imageArray) {
+  // image ist Array, nimm erstens Bild und seine URL
+  if (!imageArray?.length) return ''
+  const img = imageArray[0]
+  return img?.url ? url + img.url : ''
+}
 </script>
 
 <template>
-  <section class="article" v-if="article">
-    <div class="imageBox">
-      <img :src="article.image" :alt="article.title" />
+  <section v-if="article" class="article">
+    <div class="imageBox" v-if="article.image?.length">
+      <img :src="getImageUrl(article.image)" :alt="article.title ?? ''" />
     </div>
     <div class="container">
-      <h1>{{ article.title }}</h1>
-      <p class="info"><b>Autor</b> {{ article.author }} | <b>Veröffentlicht</b> {{ new Date(article.publishDate).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' }) }}</p>
-      <p class="teaser">{{ article.teaser }}</p>
+      <h1>{{ article.title ?? 'Ohne Titel' }}</h1>
+      <p class="info">
+        <b>Autor</b> {{ article.author ?? 'Sabrina Hennrich' }} |
+        <b>Veröffentlicht</b>
+        {{
+          article.publishdate
+            ? new Date(article.publishdate).toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' })
+            : 'unbekannt'
+        }}
+      </p>
+      <p class="teaser">{{ article.teaser ?? '' }}</p>
 
       <div v-html="htmlContent"></div>
 
-      <!-- Ads rendern -->
-      <div v-if="article.ads.length" class="ads">
-        <div v-for="ad in article.ads" :key="ad" class="ad">
-          <!-- Beispielanzeige -->
+      <div v-if="article.ads?.length" class="ads">
+        <div v-for="(ad, idx) in article.ads" :key="idx" class="ad">
           Anzeige: {{ ad }}
         </div>
       </div>
       <Disclaimer />
     </div>
   </section>
+
+  <p v-else-if="error">Artikel nicht gefunden.</p>
+  <p v-else>Lädt...</p>
 </template>
+
+
+
 
 <style lang="sass">
 .article

@@ -3,7 +3,7 @@
         <header :class="{
                 small: scrollY > 100
                 }">
-            <div>                
+            <div class="logoBox">                
                 <img 
                 src="/assets/images/NAM_Logo.svg" 
                 alt="naturamentalis Logo" 
@@ -114,8 +114,13 @@ body
         z-index: 100
         background-image: linear-gradient(to bottom, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0))
         
-        @media (max-width: $breakpointMD)
-            height: 80px
+        .logoBox
+            background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.6))
+            border-bottom-right-radius: 50%
+            padding-bottom: .5rem
+
+            @media (max-width: $breakpointMD)
+                height: 80px
         &.small
             @media (min-width: $breakpointMD)
                 nav
@@ -128,6 +133,7 @@ body
             .headLogo
                 height: 80%
                 margin-top: .5rem
+                margin-bottom: .5rem
 
 
         > div
@@ -176,7 +182,7 @@ body
             margin: 3rem 10%
     footer
         width: 100%
-        min-height: 400px
+        min-height: 200px
         height: auto
         background-image: url(/assets/images/lavendel.png)
         background-repeat: no-repeat
@@ -228,7 +234,7 @@ body
                 flex-direction: column
                 margin: 0 10%
                 > div
-                    margin-bottom: 1.5rem
+                    margin-bottom: 0
                     min-height: auto
 
 </style>

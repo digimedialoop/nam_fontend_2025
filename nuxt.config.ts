@@ -2,9 +2,20 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
   modules: ['@nuxt/image', '@nuxtjs/sitemap'],
+  runtimeConfig: {
+    public: {
+      strapiUrl: process.env.STRAPI_URL,
+      strapiToken: process.env.STRAPI_TOKEN
+    }
+  },
   sitemap: {
     hostname: 'https://www.naturamentalis.de',
     exclude: ['/impressum', '/datenschutz'],
+    defaults: {
+      lastmod: new Date().toISOString(),
+      priority: 0.5,
+      changefreq: 'weekly'
+    }
   },
   nitro: {
     preset: 'vercel',
