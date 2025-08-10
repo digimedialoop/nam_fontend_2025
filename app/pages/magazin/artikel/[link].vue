@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+
 import { useRoute, useRouter } from 'vue-router'
 import { useHtmlConverter } from '~/composables/useHtmlConverter'
 import Disclaimer from '~/components/Disclaimer.vue'
 
 const route = useRoute()
 const router = useRouter()
-const slug = route.params.link as string
+const link = route.params.link as string
 
 const token = useRuntimeConfig().public.strapiToken
 const url = useRuntimeConfig().public.strapiUrl
@@ -14,9 +14,8 @@ const url = useRuntimeConfig().public.strapiUrl
 const { convertToHTML } = useHtmlConverter()
 
 const article = ref(null)
-const error = ref(null)
 
-async function fetchArticle() {
+async function fetchArticle(slug: string) {
   try {
     const res = await $fetch(`${url}/api/articles`, {
       params: {
@@ -33,33 +32,25 @@ async function fetchArticle() {
       throw createError({ statusCode: 404, statusMessage: 'Artikel nicht gefunden' })
     }
   } catch (e) {
-    error.value = e
+    throw e // Nuxt zeigt 404 automatisch, kein manuelles Routing nötig
   }
 }
 
-await fetchArticle()
+// Direkt laden
+await fetchArticle(link)
 
-// Auf Änderungen des Slugs reagieren
-watch(() => route.params.slug, async (newSlug, oldSlug) => {
-  if (newSlug && newSlug !== oldSlug) {
-    slug = newSlug as string
-    article.value = null
-    error.value = null
-    await fetchArticle()
-  }
-})
-
-watch(error, (e) => {
-  if (e) router.replace('/404')
-})
-
+// HTML Content als computed
 const htmlContent = computed(() => {
   if (!article.value?.content) return ''
-  return convertToHTML(article.value.content) // content ist direkt Array
+  return convertToHTML(article.value.content)
 })
 
-watch(article, (art) => {
-  if (!art) return
+// SEO Meta automatisch aktualisieren mit watchEffect
+watchEffect(() => {
+  if (!article.value) return
+
+  const art = article.value
+
   useHead({
     title: art.title ?? 'Artikel',
     meta: [
@@ -97,12 +88,12 @@ watch(article, (art) => {
 })
 
 function getImageUrl(imageArray) {
-  // image ist Array, nimm erstens Bild und seine URL
   if (!imageArray?.length) return ''
   const img = imageArray[0]
   return img?.url ? url + img.url : ''
 }
 </script>
+
 
 <template>
   <section v-if="article" class="article">
