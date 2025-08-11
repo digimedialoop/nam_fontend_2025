@@ -1,5 +1,11 @@
+import { plants } from './app/utils/medPlants'
+
+// Generiere die Routes dynamisch aus den Pflanzen-Daten
+const medPlantRoutes = plants.map(plant => `/heilpflanze/${plant.slug}`)
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
+  ssr: true,
   devtools: { enabled: true },
   modules: ['@nuxt/image', '@nuxtjs/sitemap'],
   runtimeConfig: {
@@ -21,24 +27,12 @@ export default defineNuxtConfig({
     preset: 'vercel',
     prerender: {
       routes: [
-        '/heilpflanze/kamille',
-        '/heilpflanze/lavendel',
-        '/heilpflanze/pfefferminze',
-        '/heilpflanze/salbei',
-        '/heilpflanze/ringelblume',
-        '/heilpflanze/baldrian',
-        '/heilpflanze/johanniskraut',
-        '/heilpflanze/schafgarbe',
-        '/heilpflanze/thymian',
-        '/heilpflanze/ingwer',
-        '/magazin/artikel/fermentieren-mit-der-kraft-der-natur',
-        '/magazin/artikel/der-vagusnerv-fuer-entspannung-und-regeneration',
-        '/magazin/artikel/wie-musik-unsere-seele-sanft-heilt',
-        '/magazin/artikel/wildkraeuter-raeuchern-natur-rituale-und-gesundheit'
+        ...medPlantRoutes,
+        // Weitere statische Routes können hier hinzugefügt werden
       ]
     }
   },
-  target: 'static',
+  //target: 'static', For SSG
   app: {
     head: {
       title: 'naturamentalis',
