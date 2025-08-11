@@ -11,7 +11,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       strapiUrl: process.env.STRAPI_URL,
-      strapiToken: process.env.STRAPI_TOKEN
+      strapiToken: process.env.STRAPI_TOKEN,
+      liveDomain: 'www.naturamentalis.de'
     }
   },
   sitemap: {
