@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container dsimpBox">
         <h1>Impressum</h1>
 
 <h2>Angaben gemäß § 5 DDG</h2>

@@ -1,5 +1,5 @@
 <template>
-    <div class="container dsBox">
+    <div class="container dsimpBox">
         <h1>Datenschutzerklärung</h1>
 
       <h2>Allgemeine Hinweise</h2>
@@ -47,30 +47,34 @@
         Dabei kann Amazon Cookies setzen und Daten wie Ihre IP-Adresse, die Referrer-URL oder weitere technische Informationen erfassen. 
         Diese Datenverarbeitung erfolgt ausschließlich durch Amazon und nach deren Datenschutzbestimmungen. 
         Weitere Informationen finden Sie in der <a href="https://www.amazon.de/gp/help/customer/display.html?nodeId=201909010" target="_blank" rel="noopener">Datenschutzerklärung von Amazon</a>.</p>
-  
-      <h2>Zuständige Aufsichtsbehörde</h2>
-      <p>Bayerisches Landesamt für Datenschutzaufsicht<br>
-      Promenade 18<br>
-      91522 Ansbach<br>
-      <a href="https://www.lda.bayern.de" target="_blank" rel="noopener noreferrer">www.lda.bayern.de</a></p>
+      <h2>Datenschutzhinweise für Dienstleister</h2>
+      <p>Wenn Sie sich als Dienstleister (z. B. Kursleiter, Referent oder Anbieter von Veranstaltungen) bei naturamentalis.de registrieren, verarbeiten wir die von Ihnen angegebenen Daten wie Name, E-Mail-Adresse, Anschrift, Profilinformationen, Veranstaltungsbeschreibungen.</p>
+
+      <p>Diese Daten verarbeiten wir:</p>
+      <ul>
+        <li>zur Bereitstellung Ihres Nutzerkontos (Art. 6 Abs. 1 lit. b DSGVO)</li>
+        <li>zur Erfüllung gesetzlicher Verpflichtungen (z. B. Impressumspflicht, Art. 6 Abs. 1 lit. c DSGVO)</li>
+        <li>zur Wahrung berechtigter Interessen (z. B. Missbrauchsverhinderung, Art. 6 Abs. 1 lit. f DSGVO)</li>
+      </ul>
+
+      <p>Ihre Daten werden nur an Dritte weitergegeben, wenn dies zur Vertragserfüllung erforderlich ist (z. B. Anzeige Ihrer Kontaktdaten für Veranstaltungsteilnehmer) oder wir gesetzlich dazu verpflichtet sind. Eine Weitergabe zu Werbezwecken findet nicht statt.</p>
+
+      <p>Wir speichern Ihre Daten, solange Sie ein aktives Dienstleisterkonto führen. Nach der Löschung Ihres Kontos werden Ihre personenbezogenen Daten gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten entgegenstehen.</p>
 
       <h2>KI-unterstützte Inhalte</h2>
       <p>Ein Teil der auf dieser Website veröffentlichten Inhalte – insbesondere Texte und Bilder – wurde ganz oder teilweise mithilfe künstlicher Intelligenz (KI) erstellt bzw. optimiert. Die eingesetzten Tools dienen ausschließlich der kreativen Unterstützung bei Ideenfindung, Texterstellung und Bildgenerierung.</p>
       <p>Alle veröffentlichten Inhalte werden redaktionell geprüft und entsprechen sowohl unserem Qualitätsanspruch als auch den geltenden rechtlichen Anforderungen.</p>
       <p>Die Nutzung von KI erfolgt ohne die Verarbeitung personenbezogener Daten und unter Beachtung der DSGVO sowie der EU-AI-Verordnung.</p>
 
+      <h2>Zuständige Aufsichtsbehörde</h2>
+      <p>Bayerisches Landesamt für Datenschutzaufsicht<br>
+      Promenade 18<br>
+      91522 Ansbach<br>
+      <a href="https://www.lda.bayern.de" target="_blank" rel="noopener noreferrer">www.lda.bayern.de</a></p>
+
     </div>
 </template>
 
 <style lang="sass">
-.dsBox
-  h2
-    color: darken($gold, 10%)
-  h3
-    color: darken($purple, 10%)
-    font-family: 'Mainfont-Bold'
-  a
-    color: darken($green, 10%)
-    text-decoration: underline
-    font-family: 'Mainfont-Bold'
+
 </style>

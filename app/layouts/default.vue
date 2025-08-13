@@ -196,6 +196,19 @@ body
         .container
             width: 80%
             margin: 3rem 10%
+
+        // Formatierung für rechtliche Seiten    
+        .dsimpBox
+            h2
+                color: darken($gold, 10%)
+            h3
+                color: darken($purple, 10%)
+                font-family: 'Mainfont-Bold'
+            a
+                color: darken($green, 10%)
+                text-decoration: underline
+                font-family: 'Mainfont-Bold'
+
     footer
         width: 100%
         min-height: 200px

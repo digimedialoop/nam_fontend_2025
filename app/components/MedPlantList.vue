@@ -14,10 +14,7 @@
         </div>
         <div>
           <h2>{{ plant.title }}</h2>
-          <h3>{{ plant.botanicalTitle }}</h3>
-          <p>
-            <span v-for="(t, i) in plant.type" :key="i" class="tag">{{ t }}</span>
-          </p>
+          
         </div>
       </NuxtLink>
     </li>
@@ -43,8 +40,8 @@ const sortedPlants = computed(() =>
 <style lang="sass">
 .med-plant-list
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))
-    column-gap: 1.5rem
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr))
+    column-gap: 1rem
     row-gap: 3rem
     justify-content: center
     padding: 1rem
@@ -94,9 +91,10 @@ const sortedPlants = computed(() =>
             color: #333
 
         h2
-            font-size: 1.6rem
-            margin: 1.2rem 0 .5rem 0
+            font-size: 1.2rem
+            margin: 1.2rem 0.1rem .5rem 0.1rem
             font-family: 'Laila'
+            hyphens: auto
 
         h3
             font-size: 1rem

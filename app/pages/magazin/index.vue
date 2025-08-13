@@ -10,6 +10,7 @@
             >
                 <NuxtLink :to="`/magazin/artikel/${article.slug}`">
                 <img :src="url + article.image[0].url" :alt="article.image[0].alternativeText" />
+                <p class="subtitle">{{ getRandomCategory(article.articlecategories) }}</p>
                 <h3>{{ article.title }}</h3>
                 </NuxtLink>
             </div>
@@ -23,12 +24,18 @@
 const token = useRuntimeConfig().public.strapiToken
 const url = useRuntimeConfig().public.strapiUrl
 
-const { data: articles, error, pending } = await useFetch(`${url}/api/articles?populate=*`, {
+const { data: articles, error, pending } = await useFetch(`${url}/api/articles?populate=*&sort[0]=publishdate:desc`, {
   headers: {
     Authorization: `Bearer ${token}`
   },
   async: true // Optional: Asynchroner Abruf
 })
+
+const getRandomCategory = (categories) => {
+  if (!categories || categories.length === 0) return ''
+  const randomIndex = Math.floor(Math.random() * categories.length)
+  return categories[randomIndex].category
+}
 </script>
 
 <style lang="sass">
@@ -37,9 +44,10 @@ const { data: articles, error, pending } = await useFetch(`${url}/api/articles?p
     display: flex
     flex-wrap: wrap
     gap: 2rem // Abstand statt margin an den Items
+    
 
 .articleBox
-    flex: 0 0 220px // fixe Breite
+    flex: 0 0 250px // fixe Breite
     background-color: white
     border: 1px solid lighten($gold, 10%)
     border-radius: 0.8rem
@@ -56,6 +64,10 @@ const { data: articles, error, pending } = await useFetch(`${url}/api/articles?p
     &:hover
         transform: translateY(-4px)
 
+    @media (max-width: $breakpointMD)
+        flex: 0 0 auto
+        width: 100%
+
     img
         width: 100%
         height: 150px
@@ -64,12 +76,18 @@ const { data: articles, error, pending } = await useFetch(`${url}/api/articles?p
         border-radius: 0.6rem 0.6rem 0 0
         margin: 0
 
+    .subtitle
+        font-size: .9rem
+        color: darken($gold, 30%)
+        margin-bottom: 0.2rem
+
     h3
         font-family: 'Laila', sans-serif
         font-size: 1rem
-        margin: 1rem
+        margin: 0 1rem 1rem 1rem
         padding-bottom: 1rem
-        color: darken($gold, 40%)
+        color: black
         flex-grow: 1 // lässt den Titel Raum, sich gleichmäßig zu verteilen
+        
 
 </style>
