@@ -26,7 +26,7 @@
             color="purple"
             >
             <h2>Wo uraltes Wissen wurzelt und neue Einsichten sprießen</h2>
-            <h3>Wissensgarten</h3>
+            <h3>Wohlfühlmagazin</h3>
             <p>Tauche ein in fundierte Beiträge über Heilpflanzen, fermentierte Lebensmittel und die Weisheit des Körpers – vom Nervensystem bis zur Darmgesundheit. 
                 </p><p>Lerne, wie du mit einfachen Mitteln dein Wohlbefinden stärkst, sei es durch selbstgemachte Tinkturen, entspannende Atemübungen oder die Kraft fermentierter Lebensmittel.</p> 
             <button @click="goToMagazin">Tauche ein ins Magazin</button>

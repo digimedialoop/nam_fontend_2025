@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <h1>Wissensgarten</h1>
-        <h2>In unserem Magazin gedeihen Gedanken und Erfahrungen, die Körper, Geist und Seele nähren.</h2>
+        <h1>Wohlfühlmagazin</h1>
+        <h2>In unserem Garten des Wissens gedeihen Gedanken und Erfahrungen, die Körper, Geist und Seele nähren.</h2>
         <div class="articleList">
             <div
                 v-for="article in articles.data"
@@ -19,6 +19,10 @@
 </template>
 
 <script setup>
+useSeoMeta({
+  title: 'Wohlfühlmagazin für Körper und Seele - naturamentalis Magazin',
+  description: 'Artikel rund um die Themen: Körper, Gesundheit, Vitalität, Achtsamkeit, Innere Balance, Kreativität, Inspiration, Kulinarik und Natur. ',
+})
 //import { articles } from '~/utils/articles'  
 
 const token = useRuntimeConfig().public.strapiToken

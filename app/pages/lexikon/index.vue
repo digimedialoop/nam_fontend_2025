@@ -61,7 +61,10 @@
 
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+useSeoMeta({
+  title: 'Lexikon der Heilpflanzen - naturamentalis',
+  description: 'Alles über Heilkräuter, deren Geschichte, Herkunft, Anwendungsbereiche und wo sie zu finden sind. Entdecke die Kraft der Natur.',
+})
 import { plants } from '@/utils/medPlants'
 import MedPlantList from '@/components/MedPlantList.vue'
 

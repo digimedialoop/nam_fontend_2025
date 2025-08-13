@@ -15,8 +15,8 @@
 
       <!-- Navigation Links -->
       <ul :class="{ open: isOpen }">
-        <li><NuxtLink to="/lexikon">Heilpflanzen</NuxtLink></li>
-        <li><NuxtLink to="/magazin">Wissensgarten</NuxtLink></li>
+        <li><NuxtLink to="/lexikon">Heilpflanzenlexikon</NuxtLink></li>
+        <li><NuxtLink to="/magazin">Wohlfühlmagazin</NuxtLink></li>
         <li><NuxtLink to="/buchtipps">Leseschätze</NuxtLink></li>
       </ul>
     </nav>
