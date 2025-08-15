@@ -3,6 +3,19 @@ import { plants } from './app/utils/medPlants'
 // Generiere die Routes dynamisch aus den Pflanzen-Daten
 const medPlantRoutes = plants.map(plant => `/heilpflanze/${plant.slug}`)
 
+// Artikelliste für Sitemap
+const articleRoutes = [
+  '/magazin/artikel/der-atem-als-schluessel-zu-innerem-frieden-wie-bewusstes-atmen-dich-zurueck-zu-dir-selbst-fuehrt',
+  '/magazin/artikel/wie-eine-bewusste-digitale-auszeit-dein-emotionales-gleichgewicht-staerkt',
+  '/magazin/artikel/zwischen-wipfeln-und-wurzeln-wie-der-wald-koerper-und-seele-heilt',
+  '/magazin/artikel/mit-nackten-fuessen-zurueck-ins-leben-wie-barfusslaufen-dein-inneres-kind-beruehrt',
+  '/magazin/artikel/wildkraeuter-raeuchern-natur-rituale-und-gesundheit',
+  '/magazin/artikel/wie-musik-unsere-seele-sanft-heilt',
+  '/magazin/artikel/der-vagusnerv-fuer-entspannung-und-regeneration',
+  '/magazin/artikel/fermentieren-mit-der-kraft-der-natur'
+]
+
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   ssr: true,
@@ -29,7 +42,7 @@ export default defineNuxtConfig({
     prerender: {
       routes: [
         ...medPlantRoutes,
-        // Weitere statische Routes können hier hinzugefügt werden
+        ...articleRoutes
       ]
     }
   },
