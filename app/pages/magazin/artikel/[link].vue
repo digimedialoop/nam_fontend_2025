@@ -130,6 +130,10 @@ function getImageUrl(imageArray) {
           :product="prod"
         />
       </div>
+
+      <section class="disclaimer" v-if="article.Werbeprodukte?.length > 1">
+          <p><b>Hinweis</b> <span>*</span>Wir nehmen am Amazon-Partnerprogramm teil. Duch die Nutzung unserer Links kannst Du unsere Arbeit unterstützen. <br>(Es entstehen für Dich keine Mehrkosten)</p>
+        </section>
       
     </div>
   </section>

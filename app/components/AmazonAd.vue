@@ -1,7 +1,7 @@
 <template>
   <div class="adBox" v-if="product">
     <img :src="`/assets/images/bookcovers/${product.productkey}.jpg`" :alt="product.name">
-    <h3>{{ product.name }}</h3>
+    <h3>{{ product.name }}*</h3>
     <a 
       :href="`https://www.amazon.de/dp/${product.productkey}?tag=${affiliateTag}`" 
       target="_blank" 
