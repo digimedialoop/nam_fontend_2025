@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
+import AmazonAd from '~/components/AmazonAd.vue'
 const route = useRoute()
 const router = useRouter()
 const link = route.params.link as string
@@ -108,15 +109,28 @@ function getImageUrl(imageArray) {
         }}
       </p>
       <p class="teaser">{{ article.teaser ?? '' }}</p>
-
-      <div v-html="htmlContent"></div>
-
-      <div v-if="article.ads?.length" class="ads">
-        <div v-for="(ad, idx) in article.ads" :key="idx" class="ad">
-          Anzeige: {{ ad }}
-        </div>
+      
+      <!-- Erstes Werbeprodukt -->
+      <div v-if="article.Werbeprodukte?.length" class="firstAd">
+        <AmazonAd 
+          :product="article.Werbeprodukte[0]"
+          :key="article.Werbeprodukte[0].productkey"
+        />
       </div>
+
+      <div class="contentBox" v-html="htmlContent"></div>
+
       <Disclaimer />
+
+      <!-- Restliche Werbeprodukte -->
+      <div v-if="article.Werbeprodukte?.length > 1">
+        <AmazonAd 
+          v-for="(prod, idx) in article.Werbeprodukte.slice(1)" 
+          :key="prod.productkey"
+          :product="prod"
+        />
+      </div>
+      
     </div>
   </section>
 
@@ -131,6 +145,8 @@ function getImageUrl(imageArray) {
 .article
   overflow-X: hidden
   width: 100%
+  position: relative
+
   h1
     color: darken($gold, 30%)
     line-height: 120%
@@ -152,7 +168,20 @@ function getImageUrl(imageArray) {
     a
       color: darken($gold, 30%)
       text-decoration: underline
-
+  .firstAd
+    .adBox
+      float: left
+  .contentBox
+    ul, ol
+      list-style-position: inside    
+      margin-left: 0
+      padding-left: 0
+      display: block
+      margin-block-start: 1em
+      margin-block-end: 1em
+      padding-inline-start: 0
+      li
+        padding-left: 2rem
   .imageBox
     float: right
     width: 500px

@@ -78,7 +78,7 @@ onBeforeUnmount(() => {
           font-weight: bold
           padding: 0.5rem .6rem
           margin: 0 .5rem
-          font-size: 1.4rem
+          font-size: 1.2rem !important
           text-transform: uppercase
           font-family: 'Laila', sans-serif
           transition: 0.6s
