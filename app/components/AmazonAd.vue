@@ -27,7 +27,7 @@ defineProps({
 .adBox
   background-color: lighten($gold, 15%)
   padding: 2rem
-  margin: 1rem 5vw 2rem 0
+  margin: 0
   text-align: center
   border-radius: 1rem
   width: 90%

@@ -145,7 +145,7 @@ const sectionClasses = computed(() => {
       font-style: italic
       margin: 0
     h3
-      font-size: 2.8rem 
+      font-size: 2.4rem 
       margin: 1rem 0 1.6rem 0
       line-height: 120%
     p

@@ -41,12 +41,20 @@ interface ListBlock {
 type RichTextBlock = ParagraphBlock | HeadingBlock | ListBlock
 
 export function useHtmlConverter() {
-  const convertToHTML = (data: RichTextBlock[], prepend?: string): string => {
+  const convertToHTML = (data: RichTextBlock[], prepend?: string, insertAdPlaceholder: boolean = false): string => {
     let html = ""
     let firstParagraph = true
-
+    
     if (Array.isArray(data)) {
-      data.forEach((item) => {
+      // Bestimme die Position für den Werbeplatz (vor dem viertletzten Element)
+      const adPosition = insertAdPlaceholder && data.length >= 6 ? data.length - 6 : -1
+      
+      data.forEach((item, index) => {
+        // Füge Werbeplatz vor dem viertletzten Element ein
+        if (index === adPosition) {
+          html += `<div class="adPlaceholder" data-ad-position="middle"></div>`
+        }
+        
         switch (item.type) {
           case "heading":
             if (item.children?.[0]?.text) {
@@ -60,7 +68,7 @@ export function useHtmlConverter() {
               html += `</h${item.level}>`
             }
             break
-
+           
           case "paragraph":
             if (item.children?.[0]?.text) {
               html += `<p>`
@@ -83,7 +91,7 @@ export function useHtmlConverter() {
               html += `</p>`
             }
             break
-
+           
           case "list":
             if (Array.isArray(item.children)) {
               const tag = item.format === "ordered" ? "ol" : "ul"
@@ -112,10 +120,10 @@ export function useHtmlConverter() {
         }
       })
     }
-
+    
     return html
   }
-
+  
   const convertToText = (data: RichTextBlock[]): string => {
     let text = ""
     if (Array.isArray(data)) {
@@ -127,6 +135,6 @@ export function useHtmlConverter() {
     }
     return text.trim()
   }
-
+  
   return { convertToHTML, convertToText }
 }

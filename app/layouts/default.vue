@@ -181,7 +181,7 @@ body
         @media (max-width: $breakpointMD)
             margin-top: calc(80px + 3rem)
         h1
-            font-family: 'Laila'
+            
             font-size: 2.6rem
             line-height: 110%
         h2
@@ -196,6 +196,9 @@ body
         .container
             width: 80%
             margin: 3rem 10%
+        .container-5
+            width: 90%
+            margin: 0 5%
 
         // Formatierung für rechtliche Seiten    
         .dsimpBox

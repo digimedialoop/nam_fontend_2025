@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from 'vue-router'
 import AmazonAd from '~/components/AmazonAd.vue'
+import ArticleCarousel from '~/components/ArticleCarousel.vue'
+
 const route = useRoute()
 const router = useRouter()
 const link = route.params.link as string
@@ -36,10 +38,65 @@ async function fetchArticle(slug: string) {
 // Direkt laden
 await fetchArticle(link)
 
-// HTML Content als computed
+// HTML Content als computed - mit Werbeplatz-Platzhalter
 const htmlContent = computed(() => {
   if (!article.value?.content) return ''
-  return convertToHTML(article.value.content)
+  // Füge Werbeplatz-Platzhalter ein, wenn mindestens 2 Werbeprodukte vorhanden sind
+  const shouldInsertAd = article.value.Werbeprodukte?.length >= 2
+  return convertToHTML(article.value.content, undefined, shouldInsertAd)
+})
+
+// Reactive state für teleport
+const teleportReady = ref(false)
+const teleportTarget = ref('')
+
+// Funktion zum Ersetzen der Werbeplätze nach dem Mount
+const replaceAdPlaceholders = async () => {
+  // Warte auf DOM Update
+  await nextTick()
+  
+  const placeholders = document.querySelectorAll('.adPlaceholder[data-ad-position="middle"]')
+  
+  placeholders.forEach((placeholder) => {
+    if (article.value?.Werbeprodukte?.length >= 2) {
+      // Verwende eine eindeutige ID basierend auf der Artikel-ID
+      const uniqueId = `middle-ad-container-${article.value.id}`
+      placeholder.setAttribute('id', uniqueId)
+      teleportTarget.value = `#${uniqueId}`
+      
+      // Warte nochmal kurz und aktiviere dann teleport
+      setTimeout(() => {
+        teleportReady.value = true
+      }, 50)
+    } else {
+      // Entferne den Platzhalter, wenn keine Werbung vorhanden
+      placeholder.remove()
+    }
+  })
+}
+
+// Watch für Route-Änderungen (über den link parameter)
+watch(() => route.params.link, () => {
+  teleportReady.value = false
+  teleportTarget.value = ''
+}, { immediate: true })
+
+// Setze teleportReady bei jedem neuen Artikel zurück
+watch(() => article.value?.id, () => {
+  teleportReady.value = false
+  teleportTarget.value = ''
+}, { immediate: true })
+
+// Warte auf DOM-Update und ersetze Platzhalter
+onMounted(() => {
+  replaceAdPlaceholders()
+})
+
+// Auch bei Content-Änderungen
+watchEffect(() => {
+  if (article.value?.content) {
+    replaceAdPlaceholders()
+  }
 })
 
 // SEO Meta automatisch aktualisieren mit watchEffect
@@ -91,7 +148,6 @@ function getImageUrl(imageArray) {
 }
 </script>
 
-
 <template>
   <section v-if="article" class="article">
     <div class="imageBox" v-if="article.image?.length">
@@ -118,32 +174,35 @@ function getImageUrl(imageArray) {
         />
       </div>
 
+      <!-- Content mit dynamisch eingefügten Werbeplätzen -->
       <div class="contentBox" v-html="htmlContent"></div>
+      
+      <!-- Komponente für mittlere Werbung (wird nach dem Mount eingefügt) -->
+      <teleport :to="teleportTarget" v-if="teleportReady && teleportTarget && article.Werbeprodukte?.length >= 2">
+        <AmazonAd 
+          :product="article.Werbeprodukte[1]"
+          :key="`ad-${article.id}-${article.Werbeprodukte[1].productkey}`"
+        />
+      </teleport>
 
       <Disclaimer />
 
-      <!-- Restliche Werbeprodukte -->
-      <div v-if="article.Werbeprodukte?.length > 1">
-        <AmazonAd 
-          v-for="(prod, idx) in article.Werbeprodukte.slice(1)" 
-          :key="prod.productkey"
-          :product="prod"
-        />
-      </div>
+      <section class="adDisclaimer" v-if="article.Werbeprodukte?.length > 1">
+        <p><b>Info</b><span>*</span> Wir nehmen am Amazon-Partnerprogramm teil. Durch die Nutzung unserer Links kannst du unsere Arbeit unterstützen. (Es entstehen für dich keine Mehrkosten)</p>
+      </section>
 
-      <section class="disclaimer" v-if="article.Werbeprodukte?.length > 1">
-          <p><b>Hinweis</b> <span>*</span>Wir nehmen am Amazon-Partnerprogramm teil. Duch die Nutzung unserer Links kannst Du unsere Arbeit unterstützen. <br>(Es entstehen für Dich keine Mehrkosten)</p>
-        </section>
-      
+      <!-- Verwandte Artikel Karussell -->
+      <ArticleCarousel 
+        :current-article-categories="article.articlecategories || []"
+        :current-article-id="article.id"
+        v-if="article.articlecategories?.length"
+      />
     </div>
   </section>
 
   <p v-else-if="error">Artikel nicht gefunden.</p>
   <p v-else>Lädt...</p>
 </template>
-
-
-
 
 <style lang="sass">
 .article
@@ -172,9 +231,22 @@ function getImageUrl(imageArray) {
     a
       color: darken($gold, 30%)
       text-decoration: underline
+  
   .firstAd
-    .adBox
-      float: left
+    float: left
+    margin: 1rem 5vw 2rem 0
+    @media (max-width: $breakpointMD)
+      float: none
+      margin: 1rem auto
+      
+  
+  .adPlaceholder
+    margin: 1rem 0 2rem 5vw
+    float: right
+    @media (max-width: $breakpointMD)
+      float: none
+      margin: 1rem auto
+    
   .contentBox
     ul, ol
       list-style-position: inside    
@@ -186,6 +258,7 @@ function getImageUrl(imageArray) {
       padding-inline-start: 0
       li
         padding-left: 2rem
+        
   .imageBox
     float: right
     width: 500px
@@ -216,5 +289,10 @@ function getImageUrl(imageArray) {
       position: relative
       margin-top: 20%
 
-
+  .adDisclaimer
+    background-color: lighten($gold, 16%)
+    padding: .2rem 1rem
+    border-radius: 1rem
+    p
+      font-size: 1rem
 </style>

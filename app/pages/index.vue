@@ -1,13 +1,27 @@
 <template>
     <div class="home">
-        <div class="container">
-          <h1>Inspiration und Lebenskraft im Einklang der Natur</h1>
+        <div class="container-5">
+          <h1>Dein Magazin für Inspiration und Lebenskraft im Einklang der Natur</h1>
         </div>
         
         <ImageTextSection
+            imageSrc="/assets/images/MagazinImage.png"
+            imageAlt="Lesen gemütlich auf dem Sofa"
+            imagePosition="left"
+            imagePositionMobile="bottom"
+            color="red"
+            >
+            <h2>Wo uraltes Wissen wurzelt und neue Einsichten sprießen</h2>
+            <h3>Wohlfühlmagazin</h3>
+            <p>Tauche ein in fundierte Beiträge über Heilpflanzen, fermentierte Lebensmittel und die Weisheit des Körpers – vom Nervensystem bis zur Darmgesundheit. 
+                </p><p>Lerne, wie du mit einfachen Mitteln dein Wohlbefinden stärkst, sei es durch selbstgemachte Tinkturen, entspannende Atemübungen oder die Kraft fermentierter Lebensmittel.</p> 
+            <button @click="goToMagazin">Tauche ein ins Magazin</button>
+        </ImageTextSection>
+
+        <ImageTextSection
             imageSrc="/assets/images/TinkturImage.png"
             imageAlt="Kräuter Tinktur"
-            imagePosition="left"
+            imagePosition="right"
             imagePositionMobile="bottom"
             color="green"
             >
@@ -19,25 +33,11 @@
         </ImageTextSection>
 
         <ImageTextSection
-            imageSrc="/assets/images/MagazinImage.png"
-            imageAlt="Kräuter Tinktur"
-            imagePosition="right"
-            imagePositionMobile="bottom"
-            color="purple"
-            >
-            <h2>Wo uraltes Wissen wurzelt und neue Einsichten sprießen</h2>
-            <h3>Wohlfühlmagazin</h3>
-            <p>Tauche ein in fundierte Beiträge über Heilpflanzen, fermentierte Lebensmittel und die Weisheit des Körpers – vom Nervensystem bis zur Darmgesundheit. 
-                </p><p>Lerne, wie du mit einfachen Mitteln dein Wohlbefinden stärkst, sei es durch selbstgemachte Tinkturen, entspannende Atemübungen oder die Kraft fermentierter Lebensmittel.</p> 
-            <button @click="goToMagazin">Tauche ein ins Magazin</button>
-        </ImageTextSection>
-
-        <ImageTextSection
             imageSrc="/assets/images/BuchImage.png"
             imageAlt="Kräuter Tinktur"
             imagePosition="left"
             imagePositionMobile="bottom"
-            color="red"
+            color="purple"
             >
             <h2>Inspiration für Herz, Kopf und Alltag</h2>
             <h3>Leseschätze</h3>
@@ -104,8 +104,9 @@ useHead({
 <style lang="sass">
 .home
   h1
-    font-size: 1.6rem
-    margin-top: -2.5rem
+    font-size: 2.4rem
+    margin-top: -2rem
+    font-family: 'Mainfont'
     @media (max-width: $breakpointMD)
       margin-top: 0
 </style>
