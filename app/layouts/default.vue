@@ -13,9 +13,7 @@
             <MainNavBar />
         </header>
         <main>
-            <Transition name="slide-fade" mode="out-in">
-                <NuxtPage />
-            </Transition>
+            <slot />
         </main>
         <footer>
             <div class="container">

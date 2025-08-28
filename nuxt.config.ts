@@ -66,7 +66,18 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'naturamentalis – Ganzheitliche Informationen für mehr Balance und Wohlbefinden von Körper, Geist und Seele. Entdecke Wissen zu Heilpflanzen, Lebensweise und natürlichen Heilmethoden' },
         { name: 'twitter:image', content: 'https://www.naturamentalis.de/assets/images/NAM_Logo.svg' }
       ],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+      link: [
+        // Standard Favicons
+        { rel: "icon", type: "image/x-icon", href: "/assets/favicons/favicon.ico" },
+        { rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/favicons/favicon-16x16.png" },
+        { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/favicons/favicon-32x32.png" },
+
+        // Apple iOS Icon
+        { rel: "apple-touch-icon", href: "/assets/favicons/apple-touch-icon.png" },
+
+        // Manifest
+        { rel: "manifest", href: "/assets/favicons/site.webmanifest" }
+      ]
     }
   },
   css: ['@/assets/styles/main.sass'],

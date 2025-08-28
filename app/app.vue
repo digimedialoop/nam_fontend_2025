@@ -1,6 +1,9 @@
 <template>
   <div>
-    <NuxtLayout>      
+    <NuxtLayout>   
+      <Transition name="slide-fade" mode="out-in">
+          <NuxtPage />
+      </Transition>   
     </NuxtLayout>
   </div>    
 </template>

@@ -19,12 +19,13 @@ async function fetchArticle(slug: string) {
     const res = await $fetch(`${url}/api/articles`, {
       params: {
         'filters[slug][$eq]': slug,
-        populate: '*'
+        'populate': '*'
       },
       headers: {
         Authorization: `Bearer ${token}`
       }
     })
+
     if (res.data && res.data.length > 0) {
       article.value = res.data[0]
     } else {
@@ -167,10 +168,9 @@ function getImageUrl(imageArray) {
       <p class="teaser">{{ article.teaser ?? '' }}</p>
       
       <!-- Erstes Werbeprodukt -->
-      <div v-if="article.Werbeprodukte?.length" class="firstAd">
+      <div v-if="article.books?.length" class="firstAd">
         <AmazonAd 
-          :product="article.Werbeprodukte[0]"
-          :key="article.Werbeprodukte[0].productkey"
+          :book="article.books[0]"
         />
       </div>
 
@@ -178,16 +178,15 @@ function getImageUrl(imageArray) {
       <div class="contentBox" v-html="htmlContent"></div>
       
       <!-- Komponente für mittlere Werbung (wird nach dem Mount eingefügt) -->
-      <teleport :to="teleportTarget" v-if="teleportReady && teleportTarget && article.Werbeprodukte?.length >= 2">
+      <teleport :to="teleportTarget" v-if="teleportReady && teleportTarget && article.books?.length >= 2">
         <AmazonAd 
-          :product="article.Werbeprodukte[1]"
-          :key="`ad-${article.id}-${article.Werbeprodukte[1].productkey}`"
+          :book="article.books[1]"
         />
       </teleport>
 
       <Disclaimer />
 
-      <section class="adDisclaimer" v-if="article.Werbeprodukte?.length > 1">
+      <section class="adDisclaimer" v-if="article.books?.length > 1">
         <p><b>Info</b><span>*</span> Wir nehmen am Amazon-Partnerprogramm teil. Durch die Nutzung unserer Links kannst du unsere Arbeit unterstützen. (Es entstehen für dich keine Mehrkosten)</p>
       </section>
 
