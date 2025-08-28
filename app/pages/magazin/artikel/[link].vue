@@ -114,8 +114,7 @@ watchEffect(() => {
       { property: 'og:description', content: art.teaser ?? '' },
       { property: 'og:image', content: getImageUrl(art.image) },
       { property: 'og:type', content: 'article' },
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'keywords', content: 'Fermentieren Anleitung, Probiotika, Darmgesundheit' }
+      { name: 'twitter:card', content: 'summary_large_image' }
     ],
     link: [
       { rel: 'canonical', href: `https://www.naturamentalis.de/magazin/artikel/${art.slug ?? ''}` }

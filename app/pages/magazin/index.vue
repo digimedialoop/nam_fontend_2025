@@ -40,7 +40,7 @@
             :alt="getAlt(article)"
           />
           <p class="subtitle">
-            {{ getRandomCategory(article.articlecategories) }}
+            {{ article.randomCategory }}
           </p>
           <h3>{{ article.title }}</h3>
         </NuxtLink>
@@ -144,16 +144,22 @@ const totalArticleCount = computed(() => {
 })
 
 // Gefilterte Artikel basierend auf ausgewählter Kategorie
+const articlesWithRandomCategory = computed(() => {
+  return articles.value?.data.map(article => {
+    return {
+      ...article,
+      randomCategory: article.articlecategories?.length 
+        ? article.articlecategories[Math.floor(Math.random() * article.articlecategories.length)].category
+        : ''
+    }
+  }) || []
+})
+
 const filteredArticles = computed(() => {
-  if (!articles.value?.data) return []
-  
-  if (!selectedCategory.value) {
-    return articles.value.data
-  }
-  
-  return articles.value.data.filter(article => {
-    return article.articlecategories?.some(cat => cat.category === selectedCategory.value)
-  })
+  if (!selectedCategory.value) return articlesWithRandomCategory.value
+  return articlesWithRandomCategory.value.filter(article =>
+    article.articlecategories?.some(cat => cat.category === selectedCategory.value)
+  )
 })
 
 // Paginierte Artikel

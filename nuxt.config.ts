@@ -12,7 +12,14 @@ const articleRoutes = [
   '/magazin/artikel/wildkraeuter-raeuchern-natur-rituale-und-gesundheit',
   '/magazin/artikel/wie-musik-unsere-seele-sanft-heilt',
   '/magazin/artikel/der-vagusnerv-fuer-entspannung-und-regeneration',
-  '/magazin/artikel/fermentieren-mit-der-kraft-der-natur'
+  '/magazin/artikel/fermentieren-mit-der-kraft-der-natur',
+  '/magazin/artikel/wasser-quelle-des-lebens-und-tor-zur-inneren-balance',
+  '/magazin/artikel/denken-als-hochleistungssport-und-warum-du-pausen-brauchst',
+  '/magazin/artikel/wie-spaziergaenge-und-wanderungen-dein-leben-sanft-verbessern-koennen',
+  '/magazin/artikel/uralte-handwerkskunst-sauerteigbrote-selbst-backen',
+  '/magazin/artikel/naturfarben-selbst-herstellen-lebe-deine-kreativitaet-mit-pflanzlichen-pigmenten',
+  '/magazin/artikel/schein-oder-sein-authentizitaet-erdung-und-die-kraft-der-selbstwirksamkeit',
+  '/magazin/artikel/die-vergessenen-rituale-der-jahreszeiten-wie-alte-braeuche-uns-heute-wieder-erden'
 ]
 
 
