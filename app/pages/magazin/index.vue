@@ -110,7 +110,7 @@ const { data: articles, error, pending } = await useFetch(
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    async: true,
+    //async: true, // bing kann sonst nicht indexieren, weil es SSR blockiert
   }
 )
 

@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/heilpflanzen/:path*",
+      "destination": "/heilpflanze/:path*",
+      "permanent": true
+    }
+  ]
+}

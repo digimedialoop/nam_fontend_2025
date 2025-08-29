@@ -36,7 +36,6 @@ export default defineNuxtConfig({
     }
   },
   sitemap: {
-    hostname: 'https://www.naturamentalis.de',
     exclude: ['/impressum', '/datenschutz'],
     defaults: {
       lastmod: new Date().toISOString(),
