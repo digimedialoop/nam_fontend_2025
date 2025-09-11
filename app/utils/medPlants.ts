@@ -447,6 +447,30 @@ tasteSmell: "Mild, leicht herb.",
       ads: []
   },
   {
+    slug: 'hopfen',
+    title: 'Hopfen',
+    botanicalTitle: 'Humulus lupulus',
+    image: 'hopfen.jpg',
+    type: ['Zapfen', 'Blüte'],
+    effectArea: ['beruhigend', 'schlaffördernd', 'krampflösend'],
+    teaser: "Diese kletternde Heilpflanze beruhigt die Nerven, fördert den Schlaf und löst Krämpfe. Entdecke die entspannende Kraft der grünen Zapfen für erholsame Nächte!",
+    history: 'Hopfen ist in Europa, Asien und Nordamerika heimisch und wächst wild in Auwäldern, an Hecken und Waldrändern, wo er als mehrjährige Kletterpflanze bis zu 8 Meter hoch ranken kann. Die wilde Form des Hopfens findet man noch heute in vielen europäischen Ländern, besonders entlang von Flussufern und in lichten Wäldern. Bereits die Germanen und Slawen kannten Hopfen als Heilpflanze und verwendeten ihn bei Unruhe und Schlafproblemen. Die Römer nannten ihn "lupulus salictarius" (kleiner Wolf des Weidengebüschs), da er andere Pflanzen überwuchert. Erst ab dem 8. Jahrhundert wurde Hopfen systematisch zum Bierbrauen verwendet, vorher nutzte man andere Kräuter wie Gagel oder Beifuß. Hildegard von Bingen beschrieb Hopfen im 12. Jahrhundert als Mittel gegen Melancholie und zur Beruhigung. Im Mittelalter glaubte man, Hopfenkissen würden böse Träume vertreiben und friedlichen Schlaf bringen. Der kommerzielle Anbau begann im 15. Jahrhundert, wobei Bayern und Böhmen zu den wichtigsten Anbaugebieten wurden. Pfarrer Kneipp empfahl Hopfentee bei Nervosität und Magenbeschwerden. In der Volksmedizin galt Hopfen als "grünes Gold" und wurde bei Hysterie, Epilepsie und Wechseljahresbeschwerden eingesetzt. Die moderne Phytotherapie nutzt heute vor allem die beruhigenden und schlaffördernden Eigenschaften der Hopfenzapfen.',
+    medApplication: 'Hopfen ist das klassische pflanzliche Beruhigungsmittel und wird hauptsächlich bei Nervosität, Unruhe und Schlafstörungen eingesetzt. Die in den weiblichen Hopfenzapfen enthaltenen Bitterstoffe und ätherischen Öle wirken entspannend auf das Nervensystem und fördern das Einschlafen. Bei Stress, Angst und innerer Unruhe kann Hopfentee am Abend getrunken werden - er beruhigt, ohne am nächsten Tag müde zu machen. Die krampflösende Wirkung hilft bei Magen-Darm-Beschwerden, die durch Nervosität entstehen. Hopfenkissen sind ein bewährtes Hausmittel für besseren Schlaf. Die ätherischen Öle werden über Nacht eingeatmet und wirken entspannend. In der Frauenheilkunde wird Hopfen bei Wechseljahresbeschwerden und prämenstruellem Syndrom verwendet, da er pflanzliche Östrogene enthält. Bei Migräne und spannungsbedingten Kopfschmerzen kann Hopfen in Kombination mit anderen Heilpflanzen Linderung bringen. Die appetitanregende Wirkung der Bitterstoffe unterstützt die Verdauung und hilft bei Appetitlosigkeit. Äußerlich angewendet können Hopfenumschläge bei Hautentzündungen und Ekzemen helfen. In der Aromatherapie wird Hopfenöl zur Entspannung und bei Burnout-Syndrom eingesetzt. Modern wird Hopfen auch in der Anti-Aging-Kosmetik verwendet, da er antioxidative Eigenschaften besitzt.',
+    tasteSmell: "Bitter, herb, würzig-aromatisch.",
+    preparationMethods: ['Tee', 'Tinktur', 'Kissen'],
+    combinations: ['baldrian', 'melisse', 'lavendel'],
+    ingredients: [
+      'Bitterstoffe (Humulon, Lupulon)',
+      'Ätherische Öle',
+      'Flavonoide',
+      'Phytoöstrogene'
+    ],
+    harvestMonths: [8, 9],
+    locations: ['Auwälder', 'Hecken', 'Waldränder', 'Kletterpflanzen an Zäunen'],
+    notesRisks: "Bei Depression sollte Hopfen gemieden werden, da er die Stimmung weiter dämpfen kann. Nicht bei hormonabhängigen Krebsarten verwenden. In der Schwangerschaft nur nach ärztlicher Rücksprache. Bei der Hopfenernte können Kontaktallergien auftreten.",
+    ads: []
+  },
+  {
       slug: 'spitzwegerich',
       title: 'Spitzwegerich',
       botanicalTitle: 'Plantago lanceolata',

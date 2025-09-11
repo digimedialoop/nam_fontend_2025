@@ -27,7 +27,12 @@
         <h2>Geschichte / Herkunft</h2>
         <p v-if="plant.history">{{ plant.history }}</p>
     </section>
+    
     <section class="container medapp">
+        
+        <div style="float:left; margin: 0 5% 1rem 5%"><AmazonAd 
+          :book="book"
+        /></div>
         <h2>Anwendungsbereiche</h2>
         <p v-if="plant.medApplication">{{ plant.medApplication }}</p>
         <p>
@@ -91,6 +96,8 @@ const plant = computed(() =>
 
 const imageUrl = computed(() => `/images/plants/${slug}.jpg`)
 const pageUrl = computed(() => `https://www.naturamentalis.de/heilpflanzen/${slug}`)
+
+const book = {"id":56,"documentId":"d7wsfu4ekiknrnfic3mefpba","title":"Das große Buch der natürlichen Heilmittel und Kräutermedizin","author":"Hollis Ashford","asin":"B0DL38FMPY","createdAt":"2025-09-04T09:18:33.200Z","updatedAt":"2025-09-04T09:18:33.200Z","publishedAt":"2025-09-04T09:18:33.229Z"}
 
 // Liste der ähnlichen Pflanzen nach Wirkung
 const similarPlants = computed(() => {
