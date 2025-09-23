@@ -197,6 +197,9 @@ body
         .container-5
             width: 90%
             margin: 0 5%
+        .container-10
+            width: 80%
+            margin: 0 10%
 
         // Formatierung für rechtliche Seiten    
         .dsimpBox

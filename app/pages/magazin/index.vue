@@ -2,8 +2,8 @@
   <div class="container">
     <h1>Wohlfühlmagazin</h1>
     <h2>
-      In unserem Garten des Wissens gedeihen Gedanken und Erfahrungen,
-      die Körper, Geist und Seele nähren.
+      Im Garten des Wissens gedeihen Gedanken und Erfahrungen,
+      die deinen Körper, Geist und Seele nähren.
     </h2>
 
     <!-- Kategorie Filter -->

@@ -73,6 +73,7 @@
     </section>
     <section class="container">
       <Disclaimer />
+      <AmazonDisclaimer :showDis="true" />
     </section>
     
   </div>

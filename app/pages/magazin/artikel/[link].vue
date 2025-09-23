@@ -185,9 +185,7 @@ function getImageUrl(imageArray) {
 
       <Disclaimer />
 
-      <section class="adDisclaimer" v-if="article.books?.length > 1">
-        <p><b>Info</b><span>*</span> Wir nehmen am Amazon-Partnerprogramm teil. Durch die Nutzung unserer Links kannst du unsere Arbeit unterstützen. (Es entstehen für dich keine Mehrkosten)</p>
-      </section>
+      <AmazonDisclaimer :showDis="article.books?.length > 0" />
 
       <!-- Verwandte Artikel Karussell -->
       <ArticleCarousel 
@@ -287,10 +285,5 @@ function getImageUrl(imageArray) {
       position: relative
       margin-top: 20%
 
-  .adDisclaimer
-    background-color: lighten($gold, 16%)
-    padding: .2rem 1rem
-    border-radius: 1rem
-    p
-      font-size: 1rem
+  
 </style>

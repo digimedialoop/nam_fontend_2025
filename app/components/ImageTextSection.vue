@@ -151,7 +151,7 @@ const sectionClasses = computed(() => {
     p
       font-size: 1.3rem
       margin: .5rem 0
-    button
+    .btn
       font-size: 1.1rem
       padding: 1rem 3rem
       border: none
