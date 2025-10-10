@@ -33,9 +33,6 @@ export default defineNuxtConfig({
       strapiUrl: process.env.VITE_STRAPI_URL,
       strapiToken: process.env.VITE_STRAPI_TOKEN,
       liveDomain: 'www.naturamentalis.de',
-      amazonAccessKey: process.env.AMAZON_ACCESS_KEY,
-      amazonSecretKey: process.env.AMAZON_SECRET_KEY,
-      amazonAssociateTag: process.env.AMAZON_ASSOCIATE_TAG,
     }
   },
   sitemap: {
