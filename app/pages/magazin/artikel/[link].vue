@@ -177,12 +177,15 @@ function getImageUrl(imageArray) {
       <!-- Content mit dynamisch eingefügten Werbeplätzen -->
       <div class="contentBox" v-html="htmlContent"></div>
       
-      <!-- Komponente für mittlere Werbung (wird nach dem Mount eingefügt) -->
-      <teleport :to="teleportTarget" v-if="teleportReady && teleportTarget && article.books?.length >= 2">
-        <AmazonAd 
-          :book="article.books[1]"
-        />
-      </teleport>
+      <!-- Client-only Bereich für dynamische Werbung -->
+      <ClientOnly>
+        <teleport
+          :to="teleportTarget"
+          v-if="teleportReady && teleportTarget && article.books?.length >= 2"
+        >
+          <AmazonAd :book="article.books[1]" />
+        </teleport>
+      </ClientOnly>
 
       <Disclaimer />
 
