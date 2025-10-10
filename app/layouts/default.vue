@@ -1,5 +1,6 @@
 <template>
     <div>
+        <NewsletterPopup :show-after-seconds="5" :max-shows-per-day="1" ref="newsletterRef" />
         <header :class="{
                 small: scrollY > 100
                 }">
@@ -21,6 +22,7 @@
                     <img src="/assets/images/NAM_Logo.svg" alt="naturamentalis Logo">
                     <p>Ein Projekt von <a href="https://www.digimedialoop.de">digimedialoop.de</a></p></div>
                 <div>
+                    <p class="nlAbo"><span class="new">NEU</span><a @click="newsletterRef.openPopup()">Newsletter abonnieren</a></p>
                     <nav class="footer-links">
                         <NuxtLink to="/impressum">Impressum</NuxtLink>
                         <NuxtLink to="/datenschutz">Datenschutz</NuxtLink>
@@ -59,6 +61,12 @@ function goHome() {
 
 function toggleMobileNav() {
   isMobileNavOpen.value = !isMobileNavOpen.value
+}
+
+const newsletterRef = ref()
+
+function openNewsletterPopup() {
+  newsletterRef.value.openPopup()
 }
 
 // Nur auf der Live-Domain tracken (client-seitig)
@@ -244,7 +252,18 @@ body
 
                 &:last-child
                     margin-right: 10%
-            
+            .nlAbo
+                text-align: center
+                .new
+                    font-size: .8rem
+                    font-family: 'Mainfont-Bold'
+                    margin-right: .4rem
+                    background-color: $gold
+                    color: white
+                    padding: .3rem .6rem
+                    border-radius: 50%
+                a
+                    color: darken($gold, 20%)
             .footer-links
                 display: flex
                 flex-wrap: wrap

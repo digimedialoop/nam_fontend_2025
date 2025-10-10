@@ -171,6 +171,7 @@ function getImageUrl(imageArray) {
         <AmazonAd 
           :book="article.books[0]"
         />
+        <!-- <AmazonDynamicAd asin="3426658739" /> -->
       </div>
 
       <!-- Content mit dynamisch eingefügten Werbeplätzen -->

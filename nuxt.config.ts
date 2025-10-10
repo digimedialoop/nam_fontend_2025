@@ -27,12 +27,15 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   ssr: true,
   devtools: { enabled: true },
-  modules: ['@nuxt/image', '@nuxtjs/sitemap'],
+  modules: ['@nuxt/image', '@nuxtjs/sitemap', '@pinia/nuxt'],
   runtimeConfig: {
     public: {
-      strapiUrl: process.env.STRAPI_URL,
-      strapiToken: process.env.STRAPI_TOKEN,
-      liveDomain: 'www.naturamentalis.de'
+      strapiUrl: process.env.VITE_STRAPI_URL,
+      strapiToken: process.env.VITE_STRAPI_TOKEN,
+      liveDomain: 'www.naturamentalis.de',
+      amazonAccessKey: process.env.AMAZON_ACCESS_KEY,
+      amazonSecretKey: process.env.AMAZON_SECRET_KEY,
+      amazonAssociateTag: process.env.AMAZON_ASSOCIATE_TAG,
     }
   },
   sitemap: {
